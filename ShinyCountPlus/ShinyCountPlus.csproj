@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccentColorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccentColorForm.Designer.cs">
+      <DependentUpon>AccentColorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AccentColorForm.resx">
+      <DependentUpon>AccentColorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,7 +102,16 @@
     <None Include="Resources\icons8_subtract_32px.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bg.bmp" />
+    <None Include="Resources\salmonAccent.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salmonAccent2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purpleAccent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purpleAccent.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

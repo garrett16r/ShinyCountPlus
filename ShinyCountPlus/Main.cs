@@ -11,17 +11,19 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace ShinyCountPlus
 {
     public partial class Main : Form
     {
-        public string SAVE_FILE = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShinyCountPlus\\save.xml");
-        public string RES_DIR = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShinyCountPlus\\");
+        public string FILES_DIR = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShinyCountPlus/");
+        public string SAVE_FILE = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShinyCountPlus/data.sav");
 
         bool dragging = false;
         Point startPoint = new Point(0, 0);
 
+        Color accentColor = Color.FromArgb(128, 128, 255); // Will pull from save file
         bool menuOut = false;
         int count = 0;
 
@@ -29,8 +31,79 @@ namespace ShinyCountPlus
         {
             InitializeComponent();
         }
+        private void Main_Load(object sender, EventArgs e)
+        {
+            createDirectories();
+            setAccentColor(accentColor);
+
+            sidePanel.Location = new Point(-253, 0);
+            optionsSubPanel.Visible = false;
+            optionsSubPanel.Visible = false;
+            countLbl.Text = count.ToString();
+        }
 
         #region Custom methods
+        // Save data
+        private void save()
+        {
+            using (StreamWriter sw = new StreamWriter(SAVE_FILE))
+            {
+                sw.WriteLine("encounters: " + count.ToString());
+                sw.WriteLine("window_opacity: " + this.Opacity);
+                sw.Close();
+            }
+        }
+
+        private void load()
+        {
+            using (StreamReader sr = new StreamReader(SAVE_FILE))
+            {
+                try
+                {
+                    count = int.Parse(sr.ReadLine().Split(':')[1]);
+                    this.Opacity = float.Parse(sr.ReadLine().Split(':')[1]);
+                    opacitySlider.Value = (int)(this.Opacity * 10);
+                }
+                catch (Exception) { }
+            }
+        }
+
+        // Create needed directories and files if they don't exist
+        private void createDirectories()
+        {
+            if (!Directory.Exists(FILES_DIR))
+            {
+                Directory.CreateDirectory(FILES_DIR);
+                File.Create(SAVE_FILE).Close();
+            } else
+            {
+                load();
+            }
+        }
+
+        // Update counter and save data
+        private void updateCount(int increment = 1)
+        {
+            if (increment < 0)
+            {
+                if (count == 0)
+                {
+                    return;
+                }
+            }
+            count += increment;
+            countLbl.Text = count.ToString();
+            save();
+        }
+
+        // Set accent color
+        public void setAccentColor(Color c)
+        {
+            accentColor = c;
+            countLbl.ForeColor = c;
+            sidePanel.BackColor = c;
+        }
+
         // Expand the side panel in a smooth sliding animation
         async void animateSidePanel()
         {
@@ -109,17 +182,46 @@ namespace ShinyCountPlus
         }
         #endregion
 
+        #region Main functions
+        private void menuIcon_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (!menuOut)
+            {
+                menuIcon.BackgroundImage = Resources.menu_icon_2;
+                sidePanel.Visible = true;
+                animateSidePanel();
+                menuOut = true;
+            }
+            else
+            {
+                animateSidePanel();
+                menuIcon.BackgroundImage = Resources.Menu_icon;
+                sidePanel.Visible = false;
+                menuOut = false;
+                incrementBtn.Focus();
+            }
+        }
+        private void incrementBtn_Click(object sender, EventArgs e)
+        {
+            updateCount();
+        }
+
+        private void countLbl_Click(object sender, EventArgs e)
+        {
+            updateCount();
+        }
+        #endregion
+
         #region Keybinds
         private void Main_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up)
             {
-                count++;
-                countLbl.Text = count.ToString();
-            } else if (e.KeyCode == Keys.Down)
+                updateCount();
+            }
+            else if (e.KeyCode == Keys.Down)
             {
-                count--;
-                countLbl.Text = count.ToString();
+                updateCount(-1);
             }
         }
 
@@ -194,6 +296,7 @@ namespace ShinyCountPlus
         private void opacitySlider_ValueChanged(object sender, EventArgs e)
         {
             this.Opacity = (double)opacitySlider.Value / 10;
+            save();
         }
 
         private void accentPanel_MouseEnter(object sender, EventArgs e)
@@ -204,46 +307,13 @@ namespace ShinyCountPlus
         {
             unhighlightPanelOnLeave(accentPanel, 112, 112, 255);
         }
+
+        private void accentPanel_Click(object sender, EventArgs e)
+        {
+            AccentColorForm acf = new AccentColorForm();
+            acf.ShowDialog();
+        }
         #endregion
-        #endregion
-
-        #region Other
-        // Next three methods allow window to be moved without a titlebar
-        private void Main_Load(object sender, EventArgs e)
-        {
-            sidePanel.Location = new Point(-253, 0);
-            optionsSubPanel.Visible = false;
-            optionsSubPanel.Visible = false;
-            countLbl.Text = count.ToString();
-        }
-
-        private void menuIcon_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (!menuOut)
-            {
-                menuIcon.BackgroundImage = Resources.menu_icon_2;
-                sidePanel.Visible = true;
-                animateSidePanel();
-                menuOut = true;
-            }
-            else
-            {
-                animateSidePanel();
-                menuIcon.BackgroundImage = Resources.Menu_icon;
-                sidePanel.Visible = false;
-                menuOut = false;
-            }
-        }
-        private void incrementBtn_Click(object sender, EventArgs e)
-        {
-            count++;
-            countLbl.Text = count.ToString();
-        }
-
-        private void countLbl_Click(object sender, EventArgs e)
-        {
-            incrementBtn_Click(sender, e);
-        }
         #endregion
 
         #region Tool Bar
