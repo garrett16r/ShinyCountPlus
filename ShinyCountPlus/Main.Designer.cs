@@ -30,15 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.sidePanel = new System.Windows.Forms.Panel();
-            this.aboutPanel = new System.Windows.Forms.Panel();
-            this.aboutLbl = new System.Windows.Forms.Label();
             this.optionsSubPanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.opacitySlider = new System.Windows.Forms.TrackBar();
+            this.opacityPanel = new System.Windows.Forms.Panel();
             this.opacityLbl = new System.Windows.Forms.Label();
+            this.opacitySlider = new System.Windows.Forms.TrackBar();
             this.optionsPanel = new System.Windows.Forms.Panel();
             this.optionsLbl = new System.Windows.Forms.Label();
+            this.methodPanel = new System.Windows.Forms.Panel();
+            this.methodLbl = new System.Windows.Forms.Label();
+            this.targetPanel = new System.Windows.Forms.Panel();
+            this.targetLbl = new System.Windows.Forms.Label();
             this.padPanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.titleLbl = new System.Windows.Forms.Label();
             this.countLbl = new System.Windows.Forms.Label();
@@ -46,78 +49,69 @@
             this.minIcon = new System.Windows.Forms.Panel();
             this.exitIcon = new System.Windows.Forms.Panel();
             this.menuIcon = new System.Windows.Forms.Panel();
-            this.aboutSubPanel = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.accentPanel = new System.Windows.Forms.Panel();
+            this.accentLbl = new System.Windows.Forms.Label();
             this.sidePanel.SuspendLayout();
-            this.aboutPanel.SuspendLayout();
             this.optionsSubPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.opacityPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opacitySlider)).BeginInit();
             this.optionsPanel.SuspendLayout();
-            this.aboutSubPanel.SuspendLayout();
+            this.methodPanel.SuspendLayout();
+            this.targetPanel.SuspendLayout();
+            this.padPanel.SuspendLayout();
+            this.accentPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidePanel
             // 
+            this.sidePanel.AutoScroll = true;
             this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.sidePanel.Controls.Add(this.aboutSubPanel);
-            this.sidePanel.Controls.Add(this.aboutPanel);
             this.sidePanel.Controls.Add(this.optionsSubPanel);
             this.sidePanel.Controls.Add(this.optionsPanel);
+            this.sidePanel.Controls.Add(this.methodPanel);
+            this.sidePanel.Controls.Add(this.targetPanel);
             this.sidePanel.Controls.Add(this.padPanel);
             this.sidePanel.Location = new System.Drawing.Point(0, 0);
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(253, 648);
             this.sidePanel.TabIndex = 0;
             // 
-            // aboutPanel
-            // 
-            this.aboutPanel.Controls.Add(this.aboutLbl);
-            this.aboutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.aboutPanel.Location = new System.Drawing.Point(0, 310);
-            this.aboutPanel.Name = "aboutPanel";
-            this.aboutPanel.Size = new System.Drawing.Size(253, 60);
-            this.aboutPanel.TabIndex = 2;
-            this.aboutPanel.Click += new System.EventHandler(this.aboutPanel_Click);
-            this.aboutPanel.MouseEnter += new System.EventHandler(this.aboutPanel_MouseEnter);
-            this.aboutPanel.MouseLeave += new System.EventHandler(this.aboutPanel_MouseLeave);
-            // 
-            // aboutLbl
-            // 
-            this.aboutLbl.AutoSize = true;
-            this.aboutLbl.Font = new System.Drawing.Font("Fredoka One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.aboutLbl.Location = new System.Drawing.Point(4, 15);
-            this.aboutLbl.Name = "aboutLbl";
-            this.aboutLbl.Size = new System.Drawing.Size(85, 29);
-            this.aboutLbl.TabIndex = 1;
-            this.aboutLbl.Text = "About";
-            this.aboutLbl.Click += new System.EventHandler(this.aboutLbl_Click);
-            this.aboutLbl.MouseEnter += new System.EventHandler(this.aboutLbl_MouseEnter);
-            // 
             // optionsSubPanel
             // 
-            this.optionsSubPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(255)))));
-            this.optionsSubPanel.Controls.Add(this.panel2);
-            this.optionsSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.optionsSubPanel.Location = new System.Drawing.Point(0, 122);
+            this.optionsSubPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(255)))));
+            this.optionsSubPanel.Controls.Add(this.accentPanel);
+            this.optionsSubPanel.Controls.Add(this.opacityPanel);
+            this.optionsSubPanel.Location = new System.Drawing.Point(0, 242);
             this.optionsSubPanel.Name = "optionsSubPanel";
-            this.optionsSubPanel.Size = new System.Drawing.Size(253, 188);
-            this.optionsSubPanel.TabIndex = 1;
+            this.optionsSubPanel.Size = new System.Drawing.Size(253, 136);
+            this.optionsSubPanel.TabIndex = 3;
             // 
-            // panel2
+            // opacityPanel
             // 
-            this.panel2.Controls.Add(this.opacitySlider);
-            this.panel2.Controls.Add(this.opacityLbl);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(253, 68);
-            this.panel2.TabIndex = 0;
+            this.opacityPanel.Controls.Add(this.opacityLbl);
+            this.opacityPanel.Controls.Add(this.opacitySlider);
+            this.opacityPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.opacityPanel.Location = new System.Drawing.Point(0, 0);
+            this.opacityPanel.Name = "opacityPanel";
+            this.opacityPanel.Size = new System.Drawing.Size(253, 68);
+            this.opacityPanel.TabIndex = 0;
+            // 
+            // opacityLbl
+            // 
+            this.opacityLbl.AutoSize = true;
+            this.opacityLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(255)))));
+            this.opacityLbl.Font = new System.Drawing.Font("Fredoka One", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opacityLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.opacityLbl.Location = new System.Drawing.Point(21, 18);
+            this.opacityLbl.Name = "opacityLbl";
+            this.opacityLbl.Size = new System.Drawing.Size(96, 25);
+            this.opacityLbl.TabIndex = 1;
+            this.opacityLbl.Text = "Opacity:";
             // 
             // opacitySlider
             // 
-            this.opacitySlider.Location = new System.Drawing.Point(122, 22);
+            this.opacitySlider.LargeChange = 2;
+            this.opacitySlider.Location = new System.Drawing.Point(123, 20);
             this.opacitySlider.Minimum = 1;
             this.opacitySlider.Name = "opacitySlider";
             this.opacitySlider.Size = new System.Drawing.Size(104, 45);
@@ -127,26 +121,14 @@
             this.opacitySlider.Value = 10;
             this.opacitySlider.ValueChanged += new System.EventHandler(this.opacitySlider_ValueChanged);
             // 
-            // opacityLbl
-            // 
-            this.opacityLbl.AutoSize = true;
-            this.opacityLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(255)))));
-            this.opacityLbl.Font = new System.Drawing.Font("Fredoka One", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opacityLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.opacityLbl.Location = new System.Drawing.Point(20, 20);
-            this.opacityLbl.Name = "opacityLbl";
-            this.opacityLbl.Size = new System.Drawing.Size(96, 25);
-            this.opacityLbl.TabIndex = 1;
-            this.opacityLbl.Text = "Opacity:";
-            // 
             // optionsPanel
             // 
             this.optionsPanel.Controls.Add(this.optionsLbl);
             this.optionsPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.optionsPanel.Location = new System.Drawing.Point(0, 62);
+            this.optionsPanel.Location = new System.Drawing.Point(0, 182);
             this.optionsPanel.Name = "optionsPanel";
             this.optionsPanel.Size = new System.Drawing.Size(253, 60);
-            this.optionsPanel.TabIndex = 0;
+            this.optionsPanel.TabIndex = 4;
             this.optionsPanel.Click += new System.EventHandler(this.optionsPanel_Click);
             this.optionsPanel.MouseEnter += new System.EventHandler(this.optionsPanel_MouseEnter);
             this.optionsPanel.MouseLeave += new System.EventHandler(this.optionsPanel_MouseLeave);
@@ -156,21 +138,82 @@
             this.optionsLbl.AutoSize = true;
             this.optionsLbl.Font = new System.Drawing.Font("Fredoka One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optionsLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.optionsLbl.Location = new System.Drawing.Point(4, 15);
+            this.optionsLbl.Location = new System.Drawing.Point(3, 15);
             this.optionsLbl.Name = "optionsLbl";
             this.optionsLbl.Size = new System.Drawing.Size(104, 29);
-            this.optionsLbl.TabIndex = 0;
+            this.optionsLbl.TabIndex = 1;
             this.optionsLbl.Text = "Options";
             this.optionsLbl.Click += new System.EventHandler(this.optionsLbl_Click);
-            this.optionsLbl.MouseEnter += new System.EventHandler(this.optionsLbl_MouseEnter);
+            this.optionsLbl.MouseEnter += new System.EventHandler(this.optionsPanel_MouseEnter);
+            this.optionsLbl.MouseLeave += new System.EventHandler(this.optionsPanel_MouseLeave);
+            // 
+            // methodPanel
+            // 
+            this.methodPanel.Controls.Add(this.methodLbl);
+            this.methodPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.methodPanel.Location = new System.Drawing.Point(0, 122);
+            this.methodPanel.Name = "methodPanel";
+            this.methodPanel.Size = new System.Drawing.Size(253, 60);
+            this.methodPanel.TabIndex = 2;
+            this.methodPanel.MouseEnter += new System.EventHandler(this.methodPanel_MouseEnter);
+            this.methodPanel.MouseLeave += new System.EventHandler(this.methodPanel_MouseLeave);
+            // 
+            // methodLbl
+            // 
+            this.methodLbl.AutoSize = true;
+            this.methodLbl.Font = new System.Drawing.Font("Fredoka One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.methodLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.methodLbl.Location = new System.Drawing.Point(4, 15);
+            this.methodLbl.Name = "methodLbl";
+            this.methodLbl.Size = new System.Drawing.Size(181, 29);
+            this.methodLbl.TabIndex = 1;
+            this.methodLbl.Text = "Select Method";
+            this.methodLbl.MouseEnter += new System.EventHandler(this.methodPanel_MouseEnter);
+            this.methodLbl.MouseLeave += new System.EventHandler(this.methodPanel_MouseLeave);
+            // 
+            // targetPanel
+            // 
+            this.targetPanel.Controls.Add(this.targetLbl);
+            this.targetPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.targetPanel.Location = new System.Drawing.Point(0, 62);
+            this.targetPanel.Name = "targetPanel";
+            this.targetPanel.Size = new System.Drawing.Size(253, 60);
+            this.targetPanel.TabIndex = 0;
+            this.targetPanel.MouseEnter += new System.EventHandler(this.targetPanel_MouseEnter);
+            this.targetPanel.MouseLeave += new System.EventHandler(this.targetPanel_MouseLeave);
+            // 
+            // targetLbl
+            // 
+            this.targetLbl.AutoSize = true;
+            this.targetLbl.Font = new System.Drawing.Font("Fredoka One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.targetLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.targetLbl.Location = new System.Drawing.Point(4, 15);
+            this.targetLbl.Name = "targetLbl";
+            this.targetLbl.Size = new System.Drawing.Size(170, 29);
+            this.targetLbl.TabIndex = 0;
+            this.targetLbl.Text = "Select Target";
+            this.targetLbl.MouseEnter += new System.EventHandler(this.targetPanel_MouseEnter);
+            this.targetLbl.MouseLeave += new System.EventHandler(this.targetPanel_MouseLeave);
             // 
             // padPanel
             // 
+            this.padPanel.Controls.Add(this.panel1);
             this.padPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.padPanel.Location = new System.Drawing.Point(0, 0);
             this.padPanel.Name = "padPanel";
             this.padPanel.Size = new System.Drawing.Size(253, 62);
             this.padPanel.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(253, 62);
+            this.panel1.TabIndex = 0;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Main_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Main_MouseUp);
             // 
             // titleLbl
             // 
@@ -181,11 +224,13 @@
             this.titleLbl.Size = new System.Drawing.Size(126, 23);
             this.titleLbl.TabIndex = 3;
             this.titleLbl.Text = "ShinyCount+";
+            this.titleLbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
+            this.titleLbl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Main_MouseMove);
+            this.titleLbl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Main_MouseUp);
             // 
             // countLbl
             // 
-            this.countLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.countLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.countLbl.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.countLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.countLbl.Font = new System.Drawing.Font("Fredoka One", 71.99999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -244,23 +289,29 @@
             this.menuIcon.TabIndex = 1;
             this.menuIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menuIcon_MouseClick);
             // 
-            // aboutSubPanel
+            // accentPanel
             // 
-            this.aboutSubPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(255)))));
-            this.aboutSubPanel.Controls.Add(this.panel3);
-            this.aboutSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.aboutSubPanel.Location = new System.Drawing.Point(0, 370);
-            this.aboutSubPanel.Name = "aboutSubPanel";
-            this.aboutSubPanel.Size = new System.Drawing.Size(253, 188);
-            this.aboutSubPanel.TabIndex = 3;
+            this.accentPanel.Controls.Add(this.accentLbl);
+            this.accentPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.accentPanel.Location = new System.Drawing.Point(0, 68);
+            this.accentPanel.Name = "accentPanel";
+            this.accentPanel.Size = new System.Drawing.Size(253, 68);
+            this.accentPanel.TabIndex = 1;
+            this.accentPanel.MouseEnter += new System.EventHandler(this.accentPanel_MouseEnter);
+            this.accentPanel.MouseLeave += new System.EventHandler(this.accentPanel_MouseLeave);
             // 
-            // panel3
+            // accentLbl
             // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(253, 68);
-            this.panel3.TabIndex = 0;
+            this.accentLbl.AutoSize = true;
+            this.accentLbl.Font = new System.Drawing.Font("Fredoka One", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accentLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.accentLbl.Location = new System.Drawing.Point(21, 22);
+            this.accentLbl.Name = "accentLbl";
+            this.accentLbl.Size = new System.Drawing.Size(145, 25);
+            this.accentLbl.TabIndex = 2;
+            this.accentLbl.Text = "Accent Color";
+            this.accentLbl.MouseEnter += new System.EventHandler(this.accentPanel_MouseEnter);
+            this.accentLbl.MouseLeave += new System.EventHandler(this.accentPanel_MouseLeave);
             // 
             // Main
             // 
@@ -287,15 +338,19 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Main_MouseUp);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Main_PreviewKeyDown);
             this.sidePanel.ResumeLayout(false);
-            this.aboutPanel.ResumeLayout(false);
-            this.aboutPanel.PerformLayout();
             this.optionsSubPanel.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.opacityPanel.ResumeLayout(false);
+            this.opacityPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opacitySlider)).EndInit();
             this.optionsPanel.ResumeLayout(false);
             this.optionsPanel.PerformLayout();
-            this.aboutSubPanel.ResumeLayout(false);
+            this.methodPanel.ResumeLayout(false);
+            this.methodPanel.PerformLayout();
+            this.targetPanel.ResumeLayout(false);
+            this.targetPanel.PerformLayout();
+            this.padPanel.ResumeLayout(false);
+            this.accentPanel.ResumeLayout(false);
+            this.accentPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,16 +367,19 @@
         private System.Windows.Forms.Label countLbl;
         private System.Windows.Forms.Button incrementBtn;
         private System.Windows.Forms.Panel padPanel;
-        private System.Windows.Forms.Panel optionsPanel;
-        private System.Windows.Forms.Label optionsLbl;
-        private System.Windows.Forms.Panel optionsSubPanel;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel targetPanel;
+        private System.Windows.Forms.Label targetLbl;
         private System.Windows.Forms.Label opacityLbl;
         private System.Windows.Forms.TrackBar opacitySlider;
-        private System.Windows.Forms.Panel aboutPanel;
-        private System.Windows.Forms.Label aboutLbl;
-        private System.Windows.Forms.Panel aboutSubPanel;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel methodPanel;
+        private System.Windows.Forms.Label optionsLbl;
+        private System.Windows.Forms.Panel optionsSubPanel;
+        private System.Windows.Forms.Panel opacityPanel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel optionsPanel;
+        private System.Windows.Forms.Label methodLbl;
+        private System.Windows.Forms.Panel accentPanel;
+        private System.Windows.Forms.Label accentLbl;
     }
 }
 
