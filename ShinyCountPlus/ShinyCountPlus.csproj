@@ -113,5 +113,8 @@
   <ItemGroup>
     <None Include="Resources\icons8_subtract_32px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pinkAccent.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

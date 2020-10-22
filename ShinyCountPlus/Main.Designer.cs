@@ -73,7 +73,7 @@
             this.sidePanel.Controls.Add(this.methodPanel);
             this.sidePanel.Controls.Add(this.targetPanel);
             this.sidePanel.Controls.Add(this.padPanel);
-            this.sidePanel.Location = new System.Drawing.Point(347, 46);
+            this.sidePanel.Location = new System.Drawing.Point(0, 0);
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(253, 648);
             this.sidePanel.TabIndex = 0;
@@ -123,6 +123,8 @@
             this.opacityPanel.Name = "opacityPanel";
             this.opacityPanel.Size = new System.Drawing.Size(253, 68);
             this.opacityPanel.TabIndex = 0;
+            this.opacityPanel.MouseEnter += new System.EventHandler(this.opacityPanel_MouseEnter);
+            this.opacityPanel.MouseLeave += new System.EventHandler(this.opacityPanel_MouseLeave);
             // 
             // opacityLbl
             // 
@@ -134,6 +136,8 @@
             this.opacityLbl.Size = new System.Drawing.Size(96, 25);
             this.opacityLbl.TabIndex = 1;
             this.opacityLbl.Text = "Opacity:";
+            this.opacityLbl.MouseEnter += new System.EventHandler(this.opacityPanel_MouseEnter);
+            this.opacityLbl.MouseLeave += new System.EventHandler(this.opacityPanel_MouseLeave);
             // 
             // opacitySlider
             // 
@@ -147,6 +151,8 @@
             this.opacitySlider.TickFrequency = 10;
             this.opacitySlider.Value = 10;
             this.opacitySlider.ValueChanged += new System.EventHandler(this.opacitySlider_ValueChanged);
+            this.opacitySlider.MouseEnter += new System.EventHandler(this.opacityPanel_MouseEnter);
+            this.opacitySlider.MouseLeave += new System.EventHandler(this.opacityPanel_MouseLeave);
             // 
             // optionsPanel
             // 

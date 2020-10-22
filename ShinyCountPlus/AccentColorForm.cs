@@ -32,7 +32,7 @@ namespace ShinyCountPlus
         {
             mainForm.setAccentColor(c);
             mainForm.optionsPanel.BackColor = Color.FromArgb(c.R - 24, c.G - 24, c.B);
-            mainForm.accentPanel.BackColor = c;
+            mainForm.accentPanel.BackColor = Color.FromArgb(c.R - 16, c.G - 16, c.B);
         }
 
         #region Color Buttons
@@ -44,14 +44,21 @@ namespace ShinyCountPlus
 
         private void salmonBtn_Click(object sender, EventArgs e)
         {
-            Color c = Color.FromArgb(242, 99, 115);
+            Color c = Color.FromArgb(224, 92, 107);
             mainForm.setAccentColor(c);
             updateColors(c);
         }
 
         private void tealBtn_Click(object sender, EventArgs e)
         {
-            Color c = Color.FromArgb(41, 242, 181);
+            Color c = Color.FromArgb(34, 214, 169);
+            mainForm.setAccentColor(c);
+            updateColors(c);
+        }
+
+        private void pinkBtn_Click(object sender, EventArgs e)
+        {
+            Color c = Color.FromArgb(224, 51, 192);
             mainForm.setAccentColor(c);
             updateColors(c);
         }

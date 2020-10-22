@@ -106,7 +106,7 @@ namespace ShinyCountPlus
         public void setAccentColor(Color c)
         {
             Control[] normalAccentControls = { sidePanel, panel1, optionsPanel, targetPanel, methodPanel, iconColorPanel, underlinePanel };
-            Control[] darkAccentControls = { optionsSubPanel };
+            Control[] darkAccentControls = { optionsSubPanel, opacityPanel };
             accentColor = c;
             save();
             
@@ -191,11 +191,12 @@ namespace ShinyCountPlus
         {
             if (!sp.Visible)
             {
-                p.BackColor = Color.FromArgb(112, 112, 255);
-            }
-            else
+                int colorDelta = 16;
+                p.BackColor = Color.FromArgb(accentColor.R - colorDelta, accentColor.G - colorDelta, accentColor.B);
+            } else
             {
-                p.BackColor = Color.FromArgb(95, 95, 255);
+                int colorDelta = 33;
+                p.BackColor = Color.FromArgb(accentColor.R - colorDelta, accentColor.G - colorDelta, accentColor.B);
             }
         }
 
@@ -203,16 +204,16 @@ namespace ShinyCountPlus
         {
             if (!sp.Visible)
             {
-                p.BackColor = Color.FromArgb(128, 128, 255);
-            }
-            else
+                p.BackColor = accentColor;
+            } else
             {
-                p.BackColor = Color.FromArgb(104, 104, 255);
+                int colorDelta = 24;
+                p.BackColor = Color.FromArgb(accentColor.R - colorDelta, accentColor.G - colorDelta, accentColor.B);
             }
         }
         #endregion
 
-        #region Main functions
+        #region Main events
         async void menuIcon_MouseClick(object sender, MouseEventArgs e)
         {
             if (!menuOut)
@@ -334,6 +335,16 @@ namespace ShinyCountPlus
         {
             this.Opacity = (double)opacitySlider.Value / 10;
             save();
+        }
+
+        private void opacityPanel_MouseEnter(object sender, EventArgs e)
+        {
+            highlightPanelOnEnter(opacityPanel, true);
+        }
+
+        private void opacityPanel_MouseLeave(object sender, EventArgs e)
+        {
+            unhighlightPanelOnLeave(opacityPanel, true);
         }
 
         private void accentPanel_MouseEnter(object sender, EventArgs e)
