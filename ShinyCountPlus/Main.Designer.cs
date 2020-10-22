@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.sidePanel = new System.Windows.Forms.Panel();
             this.optionsSubPanel = new System.Windows.Forms.Panel();
             this.accentPanel = new System.Windows.Forms.Panel();
@@ -49,8 +48,10 @@
             this.countLbl = new System.Windows.Forms.Label();
             this.incrementBtn = new System.Windows.Forms.Button();
             this.minIcon = new System.Windows.Forms.Panel();
-            this.exitIcon = new System.Windows.Forms.Panel();
             this.menuIcon = new System.Windows.Forms.Panel();
+            this.iconColorPanel = new System.Windows.Forms.Panel();
+            this.underlinePanel = new System.Windows.Forms.Panel();
+            this.exitIcon = new System.Windows.Forms.Panel();
             this.sidePanel.SuspendLayout();
             this.optionsSubPanel.SuspendLayout();
             this.accentPanel.SuspendLayout();
@@ -60,6 +61,7 @@
             this.methodPanel.SuspendLayout();
             this.targetPanel.SuspendLayout();
             this.padPanel.SuspendLayout();
+            this.iconColorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidePanel
@@ -71,7 +73,7 @@
             this.sidePanel.Controls.Add(this.methodPanel);
             this.sidePanel.Controls.Add(this.targetPanel);
             this.sidePanel.Controls.Add(this.padPanel);
-            this.sidePanel.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel.Location = new System.Drawing.Point(347, 46);
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(253, 648);
             this.sidePanel.TabIndex = 0;
@@ -125,7 +127,6 @@
             // opacityLbl
             // 
             this.opacityLbl.AutoSize = true;
-            this.opacityLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(255)))));
             this.opacityLbl.Font = new System.Drawing.Font("Fredoka One", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.opacityLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.opacityLbl.Location = new System.Drawing.Point(21, 18);
@@ -191,9 +192,9 @@
             this.methodLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.methodLbl.Location = new System.Drawing.Point(4, 15);
             this.methodLbl.Name = "methodLbl";
-            this.methodLbl.Size = new System.Drawing.Size(181, 29);
+            this.methodLbl.Size = new System.Drawing.Size(102, 29);
             this.methodLbl.TabIndex = 1;
-            this.methodLbl.Text = "Select Method";
+            this.methodLbl.Text = "Method";
             this.methodLbl.MouseEnter += new System.EventHandler(this.methodPanel_MouseEnter);
             this.methodLbl.MouseLeave += new System.EventHandler(this.methodPanel_MouseLeave);
             // 
@@ -215,9 +216,9 @@
             this.targetLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.targetLbl.Location = new System.Drawing.Point(4, 15);
             this.targetLbl.Name = "targetLbl";
-            this.targetLbl.Size = new System.Drawing.Size(170, 29);
+            this.targetLbl.Size = new System.Drawing.Size(91, 29);
             this.targetLbl.TabIndex = 0;
-            this.targetLbl.Text = "Select Target";
+            this.targetLbl.Text = "Target";
             this.targetLbl.MouseEnter += new System.EventHandler(this.targetPanel_MouseEnter);
             this.targetLbl.MouseLeave += new System.EventHandler(this.targetPanel_MouseLeave);
             // 
@@ -245,7 +246,7 @@
             // 
             this.titleLbl.AutoSize = true;
             this.titleLbl.Font = new System.Drawing.Font("Fredoka One", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLbl.Location = new System.Drawing.Point(51, 12);
+            this.titleLbl.Location = new System.Drawing.Point(51, 9);
             this.titleLbl.Name = "titleLbl";
             this.titleLbl.Size = new System.Drawing.Size(126, 23);
             this.titleLbl.TabIndex = 3;
@@ -293,7 +294,33 @@
             this.minIcon.Name = "minIcon";
             this.minIcon.Size = new System.Drawing.Size(32, 32);
             this.minIcon.TabIndex = 5;
+            this.minIcon.Visible = false;
             this.minIcon.Click += new System.EventHandler(this.minIcon_Click);
+            // 
+            // menuIcon
+            // 
+            this.menuIcon.BackgroundImage = global::ShinyCountPlus.Properties.Resources.menu_icon_close;
+            this.menuIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.menuIcon.Location = new System.Drawing.Point(0, 0);
+            this.menuIcon.Name = "menuIcon";
+            this.menuIcon.Size = new System.Drawing.Size(50, 50);
+            this.menuIcon.TabIndex = 1;
+            this.menuIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menuIcon_MouseClick);
+            // 
+            // iconColorPanel
+            // 
+            this.iconColorPanel.Controls.Add(this.menuIcon);
+            this.iconColorPanel.Location = new System.Drawing.Point(0, 0);
+            this.iconColorPanel.Name = "iconColorPanel";
+            this.iconColorPanel.Size = new System.Drawing.Size(50, 50);
+            this.iconColorPanel.TabIndex = 5;
+            // 
+            // underlinePanel
+            // 
+            this.underlinePanel.Location = new System.Drawing.Point(51, 36);
+            this.underlinePanel.Name = "underlinePanel";
+            this.underlinePanel.Size = new System.Drawing.Size(125, 5);
+            this.underlinePanel.TabIndex = 8;
             // 
             // exitIcon
             // 
@@ -305,16 +332,6 @@
             this.exitIcon.TabIndex = 4;
             this.exitIcon.Click += new System.EventHandler(this.exitIcon_Click);
             // 
-            // menuIcon
-            // 
-            this.menuIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menuIcon.BackgroundImage")));
-            this.menuIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.menuIcon.Location = new System.Drawing.Point(0, 0);
-            this.menuIcon.Name = "menuIcon";
-            this.menuIcon.Size = new System.Drawing.Size(50, 50);
-            this.menuIcon.TabIndex = 1;
-            this.menuIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menuIcon_MouseClick);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -322,10 +339,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(438, 648);
             this.ControlBox = false;
+            this.Controls.Add(this.underlinePanel);
+            this.Controls.Add(this.iconColorPanel);
             this.Controls.Add(this.minIcon);
             this.Controls.Add(this.exitIcon);
             this.Controls.Add(this.titleLbl);
-            this.Controls.Add(this.menuIcon);
             this.Controls.Add(this.sidePanel);
             this.Controls.Add(this.countLbl);
             this.Controls.Add(this.incrementBtn);
@@ -353,6 +371,7 @@
             this.targetPanel.ResumeLayout(false);
             this.targetPanel.PerformLayout();
             this.padPanel.ResumeLayout(false);
+            this.iconColorPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,10 +397,12 @@
         private System.Windows.Forms.Panel optionsSubPanel;
         private System.Windows.Forms.Panel opacityPanel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel optionsPanel;
+        public System.Windows.Forms.Panel optionsPanel;
         private System.Windows.Forms.Label methodLbl;
-        private System.Windows.Forms.Panel accentPanel;
+        public System.Windows.Forms.Panel accentPanel;
         private System.Windows.Forms.Label accentLbl;
+        private System.Windows.Forms.Panel iconColorPanel;
+        private System.Windows.Forms.Panel underlinePanel;
     }
 }
 

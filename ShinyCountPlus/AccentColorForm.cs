@@ -15,16 +15,47 @@ namespace ShinyCountPlus
         bool dragging = false;
         Point startPoint = new Point(0, 0);
 
+        private Main mainForm = null;
+
         public AccentColorForm()
         {
             InitializeComponent();
         }
-        
-        // Will set the value in the save file and tell the main program to check or something I guess
+
+        public AccentColorForm(Form mainForm)
+        {
+            InitializeComponent();
+            this.mainForm = mainForm as Main;
+        }
+
+        private void updateColors(Color c)
+        {
+            mainForm.setAccentColor(c);
+            mainForm.optionsPanel.BackColor = Color.FromArgb(c.R - 24, c.G - 24, c.B);
+            mainForm.accentPanel.BackColor = c;
+        }
+
+        #region Color Buttons
+        private void purpleBtn_Click(object sender, EventArgs e)
+        {
+            Color c = Color.FromArgb(128, 128, 255);
+            updateColors(c);
+        }
+
         private void salmonBtn_Click(object sender, EventArgs e)
         {
-
+            Color c = Color.FromArgb(242, 99, 115);
+            mainForm.setAccentColor(c);
+            updateColors(c);
         }
+
+        private void tealBtn_Click(object sender, EventArgs e)
+        {
+            Color c = Color.FromArgb(41, 242, 181);
+            mainForm.setAccentColor(c);
+            updateColors(c);
+        }
+        #endregion
 
         #region Tools
         private void exitIcon_Click(object sender, EventArgs e)

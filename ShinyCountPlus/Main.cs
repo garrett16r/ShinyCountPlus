@@ -50,6 +50,7 @@ namespace ShinyCountPlus
             {
                 sw.WriteLine("encounters: " + count.ToString());
                 sw.WriteLine("window_opacity: " + this.Opacity);
+                sw.WriteLine("accent_color: " + accentColor.R + ", " + accentColor.G + ", " + accentColor.B);
                 sw.Close();
             }
         }
@@ -61,8 +62,13 @@ namespace ShinyCountPlus
                 try
                 {
                     count = int.Parse(sr.ReadLine().Split(':')[1]);
+
                     this.Opacity = float.Parse(sr.ReadLine().Split(':')[1]);
                     opacitySlider.Value = (int)(this.Opacity * 10);
+
+                    string[] RGB = sr.ReadLine().Split(':')[1].Split(',');
+                    Console.WriteLine(RGB.ToString());
+                    setAccentColor(Color.FromArgb(int.Parse(RGB[0]), int.Parse(RGB[1]), int.Parse(RGB[2])));
                 }
                 catch (Exception) { }
             }
@@ -99,9 +105,21 @@ namespace ShinyCountPlus
         // Set accent color
         public void setAccentColor(Color c)
         {
+            Control[] normalAccentControls = { sidePanel, panel1, optionsPanel, targetPanel, methodPanel, iconColorPanel, underlinePanel };
+            Control[] darkAccentControls = { optionsSubPanel };
             accentColor = c;
+            save();
+            
+            foreach (Control ctrl in normalAccentControls)
+            {
+                ctrl.BackColor = c;
+            }
+
+            foreach (Control ctrl in darkAccentControls)
+            {
+                ctrl.BackColor = Color.FromArgb(c.R - 16, c.G - 16, c.B);
+            }
             countLbl.ForeColor = c;
-            sidePanel.BackColor = c;
         }
 
         // Expand the side panel in a smooth sliding animation
@@ -110,6 +128,7 @@ namespace ShinyCountPlus
             Point panelLocation = sidePanel.Location;
             Point countLblLocation = countLbl.Location;
             Point titleLocation = titleLbl.Location;
+            Point underlineLocation = underlinePanel.Location;
             int xDelta;
             int titleXDelta; // Title needs to move less, so needs a separate var
 
@@ -128,6 +147,10 @@ namespace ShinyCountPlus
                 // Move title label
                 titleLbl.Location = new Point(titleLocation.X + titleXDelta, titleLocation.Y);
                 titleLocation.X += titleXDelta;
+
+                // Move title underline
+                underlinePanel.Location = new Point(underlineLocation.X + titleXDelta, underlineLocation.Y);
+                underlineLocation.X += titleXDelta;
 
                 // Move side panel
                 sidePanel.Location = new Point(panelLocation.X + xDelta, panelLocation.Y);
@@ -148,15 +171,22 @@ namespace ShinyCountPlus
             }
         }
 
-        private void highlightPanelOnEnter(Panel p, int r = 112, int g = 112, int b = 255)
+        private void highlightPanelOnEnter(Panel p, bool isSubPanel)
         {
-            p.BackColor = Color.FromArgb(r, g, b);
+            int colorDelta;
+            if (isSubPanel) colorDelta = 24; else colorDelta = 16;
+
+            p.BackColor = Color.FromArgb(accentColor.R - colorDelta, accentColor.G - colorDelta, accentColor.B);
         }
 
-        private void unhighlightPanelOnLeave(Panel p, int r = 128, int g = 128, int b = 255)
+        private void unhighlightPanelOnLeave(Panel p, bool isSubPanel)
         {
-            p.BackColor = Color.FromArgb(r, g, b);
+            int colorDelta = 0;
+            if (isSubPanel) colorDelta = 16;
+
+            p.BackColor = Color.FromArgb(accentColor.R - colorDelta, accentColor.G - colorDelta, accentColor.B);
         }
+
         private void highlightPanelOnEnter(Panel p, Panel sp)
         {
             if (!sp.Visible)
@@ -183,11 +213,11 @@ namespace ShinyCountPlus
         #endregion
 
         #region Main functions
-        private void menuIcon_MouseClick(object sender, MouseEventArgs e)
+        async void menuIcon_MouseClick(object sender, MouseEventArgs e)
         {
             if (!menuOut)
             {
-                menuIcon.BackgroundImage = Resources.menu_icon_2;
+                menuIcon.BackgroundImage = Resources.menu_icon_open;
                 sidePanel.Visible = true;
                 animateSidePanel();
                 menuOut = true;
@@ -195,10 +225,12 @@ namespace ShinyCountPlus
             else
             {
                 animateSidePanel();
-                menuIcon.BackgroundImage = Resources.Menu_icon;
-                sidePanel.Visible = false;
                 menuOut = false;
                 incrementBtn.Focus();
+                await Task.Delay(125);
+                menuIcon.BackgroundImage = Resources.menu_icon_close;
+                await Task.Delay(200);
+                sidePanel.Visible = false;
             }
         }
         private void incrementBtn_Click(object sender, EventArgs e)
@@ -222,6 +254,11 @@ namespace ShinyCountPlus
             else if (e.KeyCode == Keys.Down)
             {
                 updateCount(-1);
+            } else if (e.KeyCode == Keys.R)
+            {
+                count = 0;
+                countLbl.Text = count.ToString();
+                save();
             }
         }
 
@@ -246,24 +283,24 @@ namespace ShinyCountPlus
         #region - Select Target
         private void targetPanel_MouseEnter(object sender, EventArgs e)
         {
-            highlightPanelOnEnter(targetPanel);
+            highlightPanelOnEnter(targetPanel, false);
         }
 
         private void targetPanel_MouseLeave(object sender, EventArgs e)
         {
-            unhighlightPanelOnLeave(targetPanel);
+            unhighlightPanelOnLeave(targetPanel, false);
         }
         #endregion
 
         #region - Select Method
         private void methodPanel_MouseEnter(object sender, EventArgs e)
         {
-            highlightPanelOnEnter(methodPanel);
+            highlightPanelOnEnter(methodPanel, false);
         }
 
         private void methodPanel_MouseLeave(object sender, EventArgs e)
         {
-            unhighlightPanelOnLeave(methodPanel);
+            unhighlightPanelOnLeave(methodPanel, false);
         }
         #endregion
 
@@ -301,16 +338,16 @@ namespace ShinyCountPlus
 
         private void accentPanel_MouseEnter(object sender, EventArgs e)
         {
-            highlightPanelOnEnter(accentPanel, 104, 104, 255);
+            highlightPanelOnEnter(accentPanel, true);
         }
         private void accentPanel_MouseLeave(object sender, EventArgs e)
         {
-            unhighlightPanelOnLeave(accentPanel, 112, 112, 255);
+            unhighlightPanelOnLeave(accentPanel, true);
         }
 
         private void accentPanel_Click(object sender, EventArgs e)
         {
-            AccentColorForm acf = new AccentColorForm();
+            AccentColorForm acf = new AccentColorForm(this);
             acf.ShowDialog();
         }
         #endregion

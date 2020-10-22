@@ -90,28 +90,28 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\menu icon 2.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Menu icon.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_delete_32px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_subtract_32px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\salmonAccent.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\salmonAccent2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\purpleAccent.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\purpleAccent.bmp" />
+    <None Include="Resources\PogChamp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tealAccent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu icon open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu icon close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_delete_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_subtract_32px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

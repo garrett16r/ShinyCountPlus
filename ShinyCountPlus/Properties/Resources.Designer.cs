@@ -83,9 +83,9 @@ namespace ShinyCountPlus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Menu_icon {
+        internal static System.Drawing.Bitmap menu_icon_close {
             get {
-                object obj = ResourceManager.GetObject("Menu_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("menu_icon_close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace ShinyCountPlus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap menu_icon_2 {
+        internal static System.Drawing.Bitmap menu_icon_open {
             get {
-                object obj = ResourceManager.GetObject("menu icon 2", resourceCulture);
+                object obj = ResourceManager.GetObject("menu_icon_open", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace ShinyCountPlus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap purpleAccent {
+        internal static System.Drawing.Bitmap PogChamp {
             get {
-                object obj = ResourceManager.GetObject("purpleAccent", resourceCulture);
+                object obj = ResourceManager.GetObject("PogChamp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +126,16 @@ namespace ShinyCountPlus.Properties {
         internal static System.Drawing.Bitmap salmonAccent2 {
             get {
                 object obj = ResourceManager.GetObject("salmonAccent2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tealAccent {
+            get {
+                object obj = ResourceManager.GetObject("tealAccent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

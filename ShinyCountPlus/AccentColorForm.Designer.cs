@@ -29,11 +29,24 @@
         private void InitializeComponent()
         {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.salmonBtn = new System.Windows.Forms.Button();
             this.purpleBtn = new System.Windows.Forms.Button();
             this.exitIcon = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.tealBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(278, 32);
+            this.panel1.TabIndex = 8;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // salmonBtn
             // 
@@ -41,7 +54,7 @@
             this.salmonBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.salmonBtn.FlatAppearance.BorderSize = 0;
             this.salmonBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.salmonBtn.Location = new System.Drawing.Point(106, 48);
+            this.salmonBtn.Location = new System.Drawing.Point(106, 40);
             this.salmonBtn.Name = "salmonBtn";
             this.salmonBtn.Size = new System.Drawing.Size(60, 60);
             this.salmonBtn.TabIndex = 7;
@@ -56,42 +69,46 @@
             this.purpleBtn.FlatAppearance.BorderSize = 0;
             this.purpleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.purpleBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.purpleBtn.Location = new System.Drawing.Point(25, 48);
+            this.purpleBtn.Location = new System.Drawing.Point(25, 40);
             this.purpleBtn.Name = "purpleBtn";
             this.purpleBtn.Size = new System.Drawing.Size(60, 60);
             this.purpleBtn.TabIndex = 6;
             this.purpleBtn.TabStop = false;
             this.purpleBtn.UseVisualStyleBackColor = true;
+            this.purpleBtn.Click += new System.EventHandler(this.purpleBtn_Click);
             // 
             // exitIcon
             // 
             this.exitIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.exitIcon.BackgroundImage = global::ShinyCountPlus.Properties.Resources.icons8_delete_32px;
-            this.exitIcon.Location = new System.Drawing.Point(423, 0);
+            this.exitIcon.Location = new System.Drawing.Point(246, 0);
             this.exitIcon.Name = "exitIcon";
             this.exitIcon.Size = new System.Drawing.Size(32, 32);
             this.exitIcon.TabIndex = 5;
             this.exitIcon.Click += new System.EventHandler(this.exitIcon_Click);
             // 
-            // panel1
+            // tealBtn
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(451, 32);
-            this.panel1.TabIndex = 8;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            this.tealBtn.BackgroundImage = global::ShinyCountPlus.Properties.Resources.tealAccent;
+            this.tealBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tealBtn.FlatAppearance.BorderSize = 0;
+            this.tealBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tealBtn.Location = new System.Drawing.Point(187, 40);
+            this.tealBtn.Name = "tealBtn";
+            this.tealBtn.Size = new System.Drawing.Size(60, 60);
+            this.tealBtn.TabIndex = 9;
+            this.tealBtn.TabStop = false;
+            this.tealBtn.UseVisualStyleBackColor = true;
+            this.tealBtn.Click += new System.EventHandler(this.tealBtn_Click);
             // 
             // AccentColorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.ClientSize = new System.Drawing.Size(451, 268);
+            this.ClientSize = new System.Drawing.Size(278, 117);
             this.ControlBox = false;
+            this.Controls.Add(this.tealBtn);
             this.Controls.Add(this.salmonBtn);
             this.Controls.Add(this.purpleBtn);
             this.Controls.Add(this.exitIcon);
@@ -105,7 +122,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.TopMost = true;
             this.ResumeLayout(false);
 
         }
@@ -117,5 +133,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button salmonBtn;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button tealBtn;
     }
 }
