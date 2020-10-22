@@ -315,6 +315,7 @@
             // 
             // iconColorPanel
             // 
+            this.iconColorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.iconColorPanel.Controls.Add(this.menuIcon);
             this.iconColorPanel.Location = new System.Drawing.Point(0, 0);
             this.iconColorPanel.Name = "iconColorPanel";

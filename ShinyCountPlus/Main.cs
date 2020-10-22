@@ -24,6 +24,7 @@ namespace ShinyCountPlus
         Point startPoint = new Point(0, 0);
 
         Color accentColor = Color.FromArgb(128, 128, 255); // Will pull from save file
+
         bool menuOut = false;
         int count = 0;
 
@@ -31,26 +32,27 @@ namespace ShinyCountPlus
         {
             InitializeComponent();
         }
+
         private void Main_Load(object sender, EventArgs e)
         {
             createDirectories();
-            setAccentColor(accentColor);
+            //setAccentColor(accentColor);
 
             sidePanel.Location = new Point(-253, 0);
-            optionsSubPanel.Visible = false;
             optionsSubPanel.Visible = false;
             countLbl.Text = count.ToString();
         }
 
         #region Custom methods
-        // Save data
         private void save()
         {
             using (StreamWriter sw = new StreamWriter(SAVE_FILE))
             {
                 sw.WriteLine("encounters: " + count.ToString());
                 sw.WriteLine("window_opacity: " + this.Opacity);
-                sw.WriteLine("accent_color: " + accentColor.R + ", " + accentColor.G + ", " + accentColor.B);
+                sw.WriteLine("accent_color_r: " + accentColor.R);
+                sw.WriteLine("accent_color_g: " + accentColor.G);
+                sw.WriteLine("accent_color_b: " + accentColor.B);
                 sw.Close();
             }
         }
@@ -66,11 +68,14 @@ namespace ShinyCountPlus
                     this.Opacity = float.Parse(sr.ReadLine().Split(':')[1]);
                     opacitySlider.Value = (int)(this.Opacity * 10);
 
-                    string[] RGB = sr.ReadLine().Split(':')[1].Split(',');
-                    Console.WriteLine(RGB.ToString());
-                    setAccentColor(Color.FromArgb(int.Parse(RGB[0]), int.Parse(RGB[1]), int.Parse(RGB[2])));
+                    int r = int.Parse(sr.ReadLine().Split(':')[1]);
+                    int g = int.Parse(sr.ReadLine().Split(':')[1]);
+                    int b = int.Parse(sr.ReadLine().Split(':')[1]);
+
+                    sr.Close();
+                    setAccentColor(Color.FromArgb(r, g, b));
                 }
-                catch (Exception) { }
+                catch (Exception e) { Console.WriteLine(e); }
             }
         }
 
@@ -105,7 +110,7 @@ namespace ShinyCountPlus
         // Set accent color
         public void setAccentColor(Color c)
         {
-            Control[] normalAccentControls = { sidePanel, panel1, optionsPanel, targetPanel, methodPanel, iconColorPanel, underlinePanel };
+            Control[] normalAccentControls = { sidePanel, panel1, optionsPanel, targetPanel, methodPanel, iconColorPanel, underlinePanel, iconColorPanel };
             Control[] darkAccentControls = { optionsSubPanel, opacityPanel };
             accentColor = c;
             save();
@@ -334,7 +339,7 @@ namespace ShinyCountPlus
         private void opacitySlider_ValueChanged(object sender, EventArgs e)
         {
             this.Opacity = (double)opacitySlider.Value / 10;
-            save();
+            
         }
 
         private void opacityPanel_MouseEnter(object sender, EventArgs e)

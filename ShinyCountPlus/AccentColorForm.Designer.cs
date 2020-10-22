@@ -108,9 +108,8 @@
             // 
             // exitIcon
             // 
-            this.exitIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.exitIcon.BackgroundImage = global::ShinyCountPlus.Properties.Resources.icons8_delete_32px;
-            this.exitIcon.Location = new System.Drawing.Point(327, 0);
+            this.exitIcon.Location = new System.Drawing.Point(323, 0);
             this.exitIcon.Name = "exitIcon";
             this.exitIcon.Size = new System.Drawing.Size(32, 32);
             this.exitIcon.TabIndex = 5;
