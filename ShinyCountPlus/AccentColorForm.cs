@@ -17,11 +17,6 @@ namespace ShinyCountPlus
 
         private Main mainForm = null;
 
-        public AccentColorForm()
-        {
-            InitializeComponent();
-        }
-
         public AccentColorForm(Form mainForm)
         {
             InitializeComponent();

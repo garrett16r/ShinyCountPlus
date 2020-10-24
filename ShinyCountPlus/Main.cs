@@ -3,10 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,8 +40,6 @@ namespace ShinyCountPlus
         private void Main_Load(object sender, EventArgs e)
         {
             createDirectories();
-            //setAccentColor(accentColor);
-
             sidePanel.Location = new Point(-253, 0);
             optionsSubPanel.Visible = false;
             countLbl.Text = count.ToString();
@@ -125,6 +127,11 @@ namespace ShinyCountPlus
                 ctrl.BackColor = Color.FromArgb(c.R - 16, c.G - 16, c.B);
             }
             countLbl.ForeColor = c;
+        }
+
+        public Color getAccentColor()
+        {
+            return accentColor;
         }
 
         // Expand the side panel in a smooth sliding animation
@@ -296,6 +303,12 @@ namespace ShinyCountPlus
         {
             unhighlightPanelOnLeave(targetPanel, false);
         }
+
+        private void targetPanel_Click(object sender, EventArgs e)
+        {
+            TargetForm tf = new TargetForm(this);
+            tf.ShowDialog();
+        }
         #endregion
 
         #region - Select Method
@@ -356,6 +369,7 @@ namespace ShinyCountPlus
         {
             highlightPanelOnEnter(accentPanel, true);
         }
+
         private void accentPanel_MouseLeave(object sender, EventArgs e)
         {
             unhighlightPanelOnLeave(accentPanel, true);
@@ -392,6 +406,7 @@ namespace ShinyCountPlus
 
         private void exitIcon_Click(object sender, EventArgs e)
         {
+            save();
             Application.Exit();
         }
 

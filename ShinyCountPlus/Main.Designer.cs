@@ -212,6 +212,7 @@
             this.targetPanel.Name = "targetPanel";
             this.targetPanel.Size = new System.Drawing.Size(253, 60);
             this.targetPanel.TabIndex = 0;
+            this.targetPanel.Click += new System.EventHandler(this.targetPanel_Click);
             this.targetPanel.MouseEnter += new System.EventHandler(this.targetPanel_MouseEnter);
             this.targetPanel.MouseLeave += new System.EventHandler(this.targetPanel_MouseLeave);
             // 
@@ -225,6 +226,7 @@
             this.targetLbl.Size = new System.Drawing.Size(91, 29);
             this.targetLbl.TabIndex = 0;
             this.targetLbl.Text = "Target";
+            this.targetLbl.Click += new System.EventHandler(this.targetPanel_Click);
             this.targetLbl.MouseEnter += new System.EventHandler(this.targetPanel_MouseEnter);
             this.targetLbl.MouseLeave += new System.EventHandler(this.targetPanel_MouseLeave);
             // 
