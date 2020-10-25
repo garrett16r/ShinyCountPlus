@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ShinyCountPlus</RootNamespace>
     <AssemblyName>ShinyCountPlus</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -29,6 +29,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -84,11 +85,17 @@
     <Compile Include="AccentColorForm.Designer.cs">
       <DependentUpon>AccentColorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Target Select.cs">
+    <Compile Include="TargetSelect.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Target Select.Designer.cs">
-      <DependentUpon>Target Select.cs</DependentUpon>
+    <Compile Include="TargetSelect.Designer.cs">
+      <DependentUpon>TargetSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenSelect.Designer.cs">
+      <DependentUpon>GenSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -101,6 +108,9 @@
     <EmbeddedResource Include="AccentColorForm.resx">
       <DependentUpon>AccentColorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TargetSelect.resx">
+      <DependentUpon>TargetSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,8 +119,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Target Select.resx">
-      <DependentUpon>Target Select.cs</DependentUpon>
+    <EmbeddedResource Include="GenSelect.resx">
+      <DependentUpon>GenSelect.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -132,7 +142,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\FredokaOne-Regular.ttf" />
     <None Include="Resources\salmonAccent2.png" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +179,33 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gen1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gen2.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gen3.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gen4.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gen5.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gen6.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gen7.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gen8.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

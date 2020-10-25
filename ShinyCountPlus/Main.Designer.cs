@@ -52,6 +52,7 @@
             this.iconColorPanel = new System.Windows.Forms.Panel();
             this.underlinePanel = new System.Windows.Forms.Panel();
             this.exitIcon = new System.Windows.Forms.Panel();
+            this.targetDisplayBtn = new System.Windows.Forms.Button();
             this.sidePanel.SuspendLayout();
             this.optionsSubPanel.SuspendLayout();
             this.accentPanel.SuspendLayout();
@@ -73,7 +74,7 @@
             this.sidePanel.Controls.Add(this.methodPanel);
             this.sidePanel.Controls.Add(this.targetPanel);
             this.sidePanel.Controls.Add(this.padPanel);
-            this.sidePanel.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel.Location = new System.Drawing.Point(434, 0);
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(253, 648);
             this.sidePanel.TabIndex = 0;
@@ -270,12 +271,12 @@
             this.countLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.countLbl.Font = new System.Drawing.Font("Fredoka One", 71.99999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.countLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.countLbl.Location = new System.Drawing.Point(73, 166);
+            this.countLbl.Location = new System.Drawing.Point(78, 255);
             this.countLbl.Name = "countLbl";
             this.countLbl.Size = new System.Drawing.Size(301, 116);
             this.countLbl.TabIndex = 6;
             this.countLbl.Text = "1200";
-            this.countLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.countLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.countLbl.Click += new System.EventHandler(this.countLbl_Click);
             // 
             // incrementBtn
@@ -341,6 +342,21 @@
             this.exitIcon.TabIndex = 4;
             this.exitIcon.Click += new System.EventHandler(this.exitIcon_Click);
             // 
+            // targetDisplayBtn
+            // 
+            this.targetDisplayBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.targetDisplayBtn.FlatAppearance.BorderSize = 0;
+            this.targetDisplayBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.targetDisplayBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.targetDisplayBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.targetDisplayBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.targetDisplayBtn.Location = new System.Drawing.Point(123, 84);
+            this.targetDisplayBtn.Name = "targetDisplayBtn";
+            this.targetDisplayBtn.Size = new System.Drawing.Size(192, 192);
+            this.targetDisplayBtn.TabIndex = 10;
+            this.targetDisplayBtn.UseVisualStyleBackColor = true;
+            this.targetDisplayBtn.Click += new System.EventHandler(this.incrementBtn_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -348,12 +364,13 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(438, 648);
             this.ControlBox = false;
-            this.Controls.Add(this.underlinePanel);
             this.Controls.Add(this.iconColorPanel);
+            this.Controls.Add(this.sidePanel);
+            this.Controls.Add(this.targetDisplayBtn);
+            this.Controls.Add(this.underlinePanel);
             this.Controls.Add(this.minIcon);
             this.Controls.Add(this.exitIcon);
             this.Controls.Add(this.titleLbl);
-            this.Controls.Add(this.sidePanel);
             this.Controls.Add(this.countLbl);
             this.Controls.Add(this.incrementBtn);
             this.Font = new System.Drawing.Font("Fredoka One", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -412,6 +429,7 @@
         private System.Windows.Forms.Label accentLbl;
         private System.Windows.Forms.Panel iconColorPanel;
         private System.Windows.Forms.Panel underlinePanel;
+        private System.Windows.Forms.Button targetDisplayBtn;
     }
 }
 

@@ -15,14 +15,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace ShinyCountPlus
 {
     public partial class Main : Form
     {
-        public string FILES_DIR = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShinyCountPlus/");
-        public string SAVE_FILE = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShinyCountPlus/data.sav");
+        public string FILES_DIR = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShinyCountPlus\\");
+        public string IMG_DIR = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShinyCountPlus\\img\\");
+        public string SAVE_FILE = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShinyCountPlus\\data.sav");
 
         bool dragging = false;
         Point startPoint = new Point(0, 0);
@@ -30,7 +30,9 @@ namespace ShinyCountPlus
         Color accentColor = Color.FromArgb(128, 128, 255); // Will pull from save file
 
         bool menuOut = false;
-        int count = 0;
+        public int count = 0;
+        public string target = "";
+        public string targetImgPath = "";
 
         public Main()
         {
@@ -40,17 +42,20 @@ namespace ShinyCountPlus
         private void Main_Load(object sender, EventArgs e)
         {
             createDirectories();
+            setTargetDisplay();
             sidePanel.Location = new Point(-253, 0);
             optionsSubPanel.Visible = false;
             countLbl.Text = count.ToString();
         }
 
         #region Custom methods
-        private void save()
+        public void save()
         {
             using (StreamWriter sw = new StreamWriter(SAVE_FILE))
             {
                 sw.WriteLine("encounters: " + count.ToString());
+                sw.WriteLine("target: " + target);
+                sw.WriteLine("target_sprite_path: " + targetImgPath);
                 sw.WriteLine("window_opacity: " + this.Opacity);
                 sw.WriteLine("accent_color_r: " + accentColor.R);
                 sw.WriteLine("accent_color_g: " + accentColor.G);
@@ -66,6 +71,8 @@ namespace ShinyCountPlus
                 try
                 {
                     count = int.Parse(sr.ReadLine().Split(':')[1]);
+                    target = sr.ReadLine().Split(' ')[1];
+                    targetImgPath = sr.ReadLine().Split(' ')[1];
 
                     this.Opacity = float.Parse(sr.ReadLine().Split(':')[1]);
                     opacitySlider.Value = (int)(this.Opacity * 10);
@@ -87,10 +94,23 @@ namespace ShinyCountPlus
             if (!Directory.Exists(FILES_DIR))
             {
                 Directory.CreateDirectory(FILES_DIR);
+                Directory.CreateDirectory(IMG_DIR);
                 File.Create(SAVE_FILE).Close();
             } else
             {
                 load();
+            }
+        }
+
+        // Display the currently selected target
+        public void setTargetDisplay()
+        {
+            if (target != "")
+            {
+                try
+                {
+                    targetDisplayBtn.BackgroundImage = Image.FromFile(targetImgPath);
+                } catch (Exception e) { Console.WriteLine(e.Message); }
             }
         }
 
@@ -139,6 +159,7 @@ namespace ShinyCountPlus
         {
             Point panelLocation = sidePanel.Location;
             Point countLblLocation = countLbl.Location;
+            Point targetBtnLocation = targetDisplayBtn.Location;
             Point titleLocation = titleLbl.Location;
             Point underlineLocation = underlinePanel.Location;
             int xDelta;
@@ -153,7 +174,9 @@ namespace ShinyCountPlus
                 if (i > 5)
                 {
                     countLbl.Location = new Point(countLblLocation.X + xDelta, countLblLocation.Y);
+                    targetDisplayBtn.Location = new Point(targetBtnLocation.X + xDelta, targetBtnLocation.Y);
                     countLblLocation.X += xDelta;
+                    targetBtnLocation.X += xDelta;
                 }
 
                 // Move title label
@@ -306,7 +329,7 @@ namespace ShinyCountPlus
 
         private void targetPanel_Click(object sender, EventArgs e)
         {
-            TargetForm tf = new TargetForm(this);
+            GenSelectForm tf = new GenSelectForm(this);
             tf.ShowDialog();
         }
         #endregion

@@ -61,12 +61,497 @@ namespace ShinyCountPlus.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] FredokaOne_Regular {
+        internal static System.Drawing.Bitmap bg {
             get {
-                object obj = ResourceManager.GetObject("FredokaOne_Regular", resourceCulture);
-                return ((byte[])(obj));
+                object obj = ResourceManager.GetObject("bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bulbasaur
+        ///Ivysaur
+        ///Venusaur
+        ///Charmander
+        ///Charmeleon
+        ///Charizard
+        ///Squirtle
+        ///Wartortle
+        ///Blastoise
+        ///Caterpie
+        ///Metapod
+        ///Butterfree
+        ///Weedle
+        ///Kakuna
+        ///Beedrill
+        ///Pidgey
+        ///Pidgeotto
+        ///Pidgeot
+        ///Rattata
+        ///Rattata-Alolan
+        ///Raticate
+        ///Raticate-Alolan
+        ///Spearow
+        ///Fearow
+        ///Ekans
+        ///Arbok
+        ///Pikachu
+        ///Raichu
+        ///Raichu-Alolan
+        ///Sandshrew
+        ///Sandshrew-Alolan
+        ///Sandslash
+        ///Sandslash-Alolan
+        ///Nidoran-F
+        ///Nidorina
+        ///Nidoqueen
+        ///Nidoran-M
+        ///Nidorino
+        ///Nidoking
+        ///Clefairy
+        ///Clefable
+        ///Vulpix
+        ///Vulpix-Alolan
+        ///Ninetales
+        ///Ninetales-Alolan
+        ///Jigglypuff
+        ///Wigglytuff [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string gen1 {
+            get {
+                return ResourceManager.GetString("gen1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chikorita
+        ///Bayleef
+        ///Meganium
+        ///Cyndaquil
+        ///Quilava
+        ///Typhlosion
+        ///Totodile
+        ///Croconaw
+        ///Feraligatr
+        ///Sentret
+        ///Furret
+        ///Hoothoot
+        ///Noctowl
+        ///Ledyba
+        ///Ledian
+        ///Spinarak
+        ///Ariados
+        ///Crobat
+        ///Chinchou
+        ///Lanturn
+        ///Pichu
+        ///Cleffa
+        ///Igglybuff
+        ///Togepi
+        ///Togetic
+        ///Natu
+        ///Xatu
+        ///Mareep
+        ///Flaaffy
+        ///Ampharos
+        ///Bellossom
+        ///Marill
+        ///Azumarill
+        ///Sudowoodo
+        ///Politoed
+        ///Hoppip
+        ///Skiploom
+        ///Jumpluff
+        ///Aipom
+        ///Sunkern
+        ///Sunflora
+        ///Yanma
+        ///Wooper
+        ///Quagsire
+        ///Espeon
+        ///Umbreon
+        ///Murkrow
+        ///Slowking
+        ///Misdreavus
+        ///Unown
+        ///Wobbuffet
+        ///Girafarig
+        ///Pineco
+        ///Forretress
+        ///Dunsparce
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string gen2 {
+            get {
+                return ResourceManager.GetString("gen2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Treecko
+        ///Grovyle
+        ///Sceptile
+        ///Torchic
+        ///Combusken
+        ///Blaziken
+        ///Mudkip
+        ///Marshtomp
+        ///Swampert
+        ///Poochyena
+        ///Mightyena
+        ///Zigzagoon
+        ///Zigzagoon-Galarian
+        ///Linoone
+        ///Linoone-Galarian
+        ///Wurmple
+        ///Silcoon
+        ///Beautifly
+        ///Cascoon
+        ///Dustox
+        ///Lotad
+        ///Lombre
+        ///Ludicolo
+        ///Seedot
+        ///Nuzleaf
+        ///Shiftry
+        ///Taillow
+        ///Swellow
+        ///Wingull
+        ///Pelipper
+        ///Ralts
+        ///Kirlia
+        ///Gardevoir
+        ///Surskit
+        ///Masquerain
+        ///Shroomish
+        ///Breloom
+        ///Slakoth
+        ///Vigoroth
+        ///Slaking
+        ///Nincada
+        ///Ninjask
+        ///Shedinja
+        ///Whismur
+        ///Loudred
+        ///Exploud
+        ///Makuhita
+        ///Hariyama
+        ///Azurill
+        ///Nosepass
+        ///Skitty
+        ///Delcatty
+        ///Sabl [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string gen3 {
+            get {
+                return ResourceManager.GetString("gen3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turtwig
+        ///Grotle
+        ///Torterra
+        ///Chimchar
+        ///Monferno
+        ///Infernape
+        ///Piplup
+        ///Prinplup
+        ///Empoleon
+        ///Starly
+        ///Staravia
+        ///Staraptor
+        ///Bidoof
+        ///Bibarel
+        ///Kricketot
+        ///Kricketune
+        ///Shinx
+        ///Luxio
+        ///Luxray
+        ///Budew
+        ///Roserade
+        ///Cranidos
+        ///Rampardos
+        ///Shieldon
+        ///Bastiodon
+        ///Burmy
+        ///Wormadam
+        ///Mothim
+        ///Combee
+        ///Vespiquen
+        ///Pachirisu
+        ///Buizel
+        ///Floatzel
+        ///Cherubi
+        ///Cherrim
+        ///Shellos
+        ///Gastrodon
+        ///Ambipom
+        ///Drifloon
+        ///Drifblim
+        ///Buneary
+        ///Lopunny
+        ///Mismagius
+        ///Honchkrow
+        ///Glameow
+        ///Purugly
+        ///Chingling
+        ///Stunky
+        ///Skuntank
+        ///Bronzor
+        ///Bronzong
+        ///Bonsly
+        ///Mime-Jr
+        ///Happiny
+        ///Chat [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string gen4 {
+            get {
+                return ResourceManager.GetString("gen4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Victini
+        ///Snivy
+        ///Servine
+        ///Serperior
+        ///Tepig
+        ///Pignite
+        ///Emboar
+        ///Oshawott
+        ///Dewott
+        ///Samurott
+        ///Patrat
+        ///Watchog
+        ///Lillipup
+        ///Herdier
+        ///Stoutland
+        ///Purrloin
+        ///Liepard
+        ///Pansage
+        ///Simisage
+        ///Pansear
+        ///Simisear
+        ///Panpour
+        ///Simipour
+        ///Munna
+        ///Musharna
+        ///Pidove
+        ///Tranquill
+        ///Unfezant
+        ///Blitzle
+        ///Zebstrika
+        ///Roggenrola
+        ///Boldore
+        ///Gigalith
+        ///Woobat
+        ///Swoobat
+        ///Drilbur
+        ///Excadrill
+        ///Audino
+        ///Timburr
+        ///Gurdurr
+        ///Conkeldurr
+        ///Tympole
+        ///Palpitoad
+        ///Seismitoad
+        ///Throh
+        ///Sawk
+        ///Sewaddle
+        ///Swadloon
+        ///Leavanny
+        ///Venipede
+        ///Whirlipede
+        ///Scolipede
+        ///Cottonee
+        ///Whimsicott        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string gen5 {
+            get {
+                return ResourceManager.GetString("gen5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chespin
+        ///Quilladin
+        ///Chesnaught
+        ///Fennekin
+        ///Braixen
+        ///Delphox
+        ///Froakie
+        ///Frogadier
+        ///Greninja
+        ///Bunnelby
+        ///Diggersby
+        ///Fletchling
+        ///Fletchinder
+        ///Talonflame
+        ///Scatterbug
+        ///Spewpa
+        ///Vivillon
+        ///Litleo
+        ///Pyroar
+        ///Flabebe
+        ///Floette
+        ///Florges
+        ///Skiddo
+        ///Gogoat
+        ///Pancham
+        ///Pangoro
+        ///Furfrou
+        ///Espurr
+        ///Meowstic
+        ///Honedge
+        ///Doublade
+        ///Aegislash
+        ///Spritzee
+        ///Aromatisse
+        ///Swirlix
+        ///Slurpuff
+        ///Inkay
+        ///Malamar
+        ///Binacle
+        ///Barbaracle
+        ///Skrelp
+        ///Dragalge
+        ///Clauncher
+        ///Clawitzer
+        ///Helioptile
+        ///Heliolisk
+        ///Tyrunt
+        ///Tyrantrum
+        ///Amaura
+        ///Aurorus
+        ///Sylveon
+        ///Hawlucha
+        ///Dede [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string gen6 {
+            get {
+                return ResourceManager.GetString("gen6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rowlet
+        ///Dartrix
+        ///Decidueye
+        ///Litten
+        ///Torracat
+        ///Incineroar
+        ///Popplio
+        ///Brionne
+        ///Primarina
+        ///Pikipek
+        ///Trumbeak
+        ///Toucannon
+        ///Yungoos
+        ///Gumshoos
+        ///Grubbin
+        ///Charjabug
+        ///Vikavolt
+        ///Crabrawler
+        ///Crabominable
+        ///Oricorio
+        ///Cutiefly
+        ///Ribombee
+        ///Rockruff
+        ///Lycanroc
+        ///Wishiwashi
+        ///Mareanie
+        ///Toxapex
+        ///Mudbray
+        ///Mudsdale
+        ///Dewpider
+        ///Araquanid
+        ///Fomantis
+        ///Lurantis
+        ///Morelull
+        ///Shiinotic
+        ///Salandit
+        ///Salazzle
+        ///Stufful
+        ///Bewear
+        ///Bounsweet
+        ///Steenee
+        ///Tsareena
+        ///Comfey
+        ///Oranguru
+        ///Passimian
+        ///Wimpod
+        ///Golisopod
+        ///Sandygast
+        ///Palossand
+        ///Pyukumuku
+        ///Type-Null        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string gen7 {
+            get {
+                return ResourceManager.GetString("gen7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grookey
+        ///Thwackey
+        ///Rillaboom
+        ///Scorbunny
+        ///Raboot
+        ///Cinderace
+        ///Sobble
+        ///Drizzile
+        ///Inteleon
+        ///Skwovet
+        ///Greedent
+        ///Rookidee
+        ///Corvisquire
+        ///Corviknight
+        ///Blipbug
+        ///Dottler
+        ///Orbeetle
+        ///Nickit
+        ///Thievul
+        ///Gossifleur
+        ///Eldegoss
+        ///Wooloo
+        ///Dubwool
+        ///Chewtle
+        ///Drednaw
+        ///Yamper
+        ///Boltund
+        ///Rolycoly
+        ///Carkol
+        ///Coalossal
+        ///Applin
+        ///Flapple
+        ///Appletun
+        ///Silicobra
+        ///Sandaconda
+        ///Cramorant
+        ///Arrokuda
+        ///Barraskewda
+        ///Toxel
+        ///Toxtricity
+        ///Sizzlipede
+        ///Centiskorch
+        ///Clobbopus
+        ///Grapploct
+        ///Sinistea
+        ///Polteageist
+        ///Hatenna
+        ///Hattrem
+        ///Hatterene
+        ///Impidimp
+        ///Morgrem
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string gen8 {
+            get {
+                return ResourceManager.GetString("gen8", resourceCulture);
             }
         }
         
