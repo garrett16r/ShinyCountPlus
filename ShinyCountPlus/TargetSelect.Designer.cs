@@ -41,8 +41,8 @@
             this.Col9 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Col10 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.exitIcon = new System.Windows.Forms.Panel();
             this.targetLbl = new System.Windows.Forms.Label();
+            this.exitIcon = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pkmnGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +94,8 @@
             this.pkmnGridView.TabIndex = 0;
             this.pkmnGridView.TabStop = false;
             this.pkmnGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pkmnGridView_CellDoubleClick);
+            this.pkmnGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TargetSelectForm_KeyDown);
+            this.pkmnGridView.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.TargetSelectForm_PreviewKeyDown);
             // 
             // Col1
             // 
@@ -179,16 +181,6 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
-            // exitIcon
-            // 
-            this.exitIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.exitIcon.BackgroundImage = global::ShinyCountPlus.Properties.Resources.icons8_delete_32px;
-            this.exitIcon.Location = new System.Drawing.Point(985, 0);
-            this.exitIcon.Name = "exitIcon";
-            this.exitIcon.Size = new System.Drawing.Size(32, 32);
-            this.exitIcon.TabIndex = 7;
-            this.exitIcon.Click += new System.EventHandler(this.exitIcon_Click);
-            // 
             // targetLbl
             // 
             this.targetLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -199,6 +191,16 @@
             this.targetLbl.Text = "target message";
             this.targetLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.targetLbl.Visible = false;
+            // 
+            // exitIcon
+            // 
+            this.exitIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exitIcon.BackgroundImage = global::ShinyCountPlus.Properties.Resources.icons8_delete_32px;
+            this.exitIcon.Location = new System.Drawing.Point(985, 0);
+            this.exitIcon.Name = "exitIcon";
+            this.exitIcon.Size = new System.Drawing.Size(32, 32);
+            this.exitIcon.TabIndex = 7;
+            this.exitIcon.Click += new System.EventHandler(this.exitIcon_Click);
             // 
             // TargetSelectForm
             // 
@@ -214,6 +216,8 @@
             this.Name = "TargetSelectForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.TargetSelect_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TargetSelectForm_KeyDown);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.TargetSelectForm_PreviewKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pkmnGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

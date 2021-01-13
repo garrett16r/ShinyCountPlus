@@ -13,6 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>C:\Users\Syn\Downloads\ShinyCountPlus Test\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -29,7 +30,6 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -65,6 +65,9 @@
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>maybe_use_this_one_ptD_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -84,6 +87,13 @@
     </Compile>
     <Compile Include="AccentColorForm.Designer.cs">
       <DependentUpon>AccentColorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Odds.cs" />
+    <Compile Include="MethodSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MethodSelect.Designer.cs">
+      <DependentUpon>MethodSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="TargetSelect.cs">
       <SubType>Form</SubType>
@@ -107,6 +117,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AccentColorForm.resx">
       <DependentUpon>AccentColorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MethodSelect.resx">
+      <DependentUpon>MethodSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TargetSelect.resx">
       <DependentUpon>TargetSelect.cs</DependentUpon>
@@ -206,6 +219,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="maybe_use_this_one_ptD_icon.ico" />
+    <None Include="Resources\ask_question_100px.png" />
+    <None Include="Resources\paypal logo.png" />
+    <None Include="Resources\GitHub-Mark2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

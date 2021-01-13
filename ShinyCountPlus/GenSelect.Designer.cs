@@ -88,6 +88,8 @@
             this.gen8Btn.Text = "Gen 8\r\n(810-893)\r\n";
             this.gen8Btn.UseVisualStyleBackColor = false;
             this.gen8Btn.Click += new System.EventHandler(this.gen8Btn_Click);
+            this.gen8Btn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenSelectForm_KeyDown);
+            this.gen8Btn.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GenSelectForm_PreviewKeyDown);
             // 
             // gen7Btn
             // 
@@ -103,6 +105,8 @@
             this.gen7Btn.Text = "Gen 7\r\n(722-809)\r\n";
             this.gen7Btn.UseVisualStyleBackColor = false;
             this.gen7Btn.Click += new System.EventHandler(this.gen7Btn_Click);
+            this.gen7Btn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenSelectForm_KeyDown);
+            this.gen7Btn.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GenSelectForm_PreviewKeyDown);
             // 
             // gen6Btn
             // 
@@ -118,6 +122,8 @@
             this.gen6Btn.Text = "Gen 6\r\n(650-721)\r\n";
             this.gen6Btn.UseVisualStyleBackColor = false;
             this.gen6Btn.Click += new System.EventHandler(this.gen6Btn_Click);
+            this.gen6Btn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenSelectForm_KeyDown);
+            this.gen6Btn.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GenSelectForm_PreviewKeyDown);
             // 
             // gen5Btn
             // 
@@ -133,6 +139,8 @@
             this.gen5Btn.Text = "Gen 5\r\n(494-649)\r\n";
             this.gen5Btn.UseVisualStyleBackColor = false;
             this.gen5Btn.Click += new System.EventHandler(this.gen5Btn_Click);
+            this.gen5Btn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenSelectForm_KeyDown);
+            this.gen5Btn.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GenSelectForm_PreviewKeyDown);
             // 
             // gen4Btn
             // 
@@ -148,6 +156,8 @@
             this.gen4Btn.Text = "Gen 4\r\n(387-493)\r\n";
             this.gen4Btn.UseVisualStyleBackColor = false;
             this.gen4Btn.Click += new System.EventHandler(this.gen4Btn_Click);
+            this.gen4Btn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenSelectForm_KeyDown);
+            this.gen4Btn.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GenSelectForm_PreviewKeyDown);
             // 
             // gen3Btn
             // 
@@ -163,6 +173,8 @@
             this.gen3Btn.Text = "Gen 3\r\n(252-386)\r\n";
             this.gen3Btn.UseVisualStyleBackColor = false;
             this.gen3Btn.Click += new System.EventHandler(this.gen3Btn_Click);
+            this.gen3Btn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenSelectForm_KeyDown);
+            this.gen3Btn.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GenSelectForm_PreviewKeyDown);
             // 
             // gen2Btn
             // 
@@ -178,6 +190,8 @@
             this.gen2Btn.Text = "Gen 2\r\n(152-251)\r\n";
             this.gen2Btn.UseVisualStyleBackColor = false;
             this.gen2Btn.Click += new System.EventHandler(this.gen2Btn_Click);
+            this.gen2Btn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenSelectForm_KeyDown);
+            this.gen2Btn.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GenSelectForm_PreviewKeyDown);
             // 
             // gen1Btn
             // 
@@ -193,6 +207,8 @@
             this.gen1Btn.Text = "Gen 1\r\n(1-151)\r\n";
             this.gen1Btn.UseVisualStyleBackColor = false;
             this.gen1Btn.Click += new System.EventHandler(this.gen1Btn_Click);
+            this.gen1Btn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenSelectForm_KeyDown);
+            this.gen1Btn.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GenSelectForm_PreviewKeyDown);
             // 
             // GenSelectForm
             // 
@@ -217,6 +233,8 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.TargetForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenSelectForm_KeyDown);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GenSelectForm_PreviewKeyDown);
             this.toolBarPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
