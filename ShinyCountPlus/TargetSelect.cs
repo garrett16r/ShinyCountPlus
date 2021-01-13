@@ -92,13 +92,19 @@ namespace ShinyCountPlus
                             url = "https://img.pokemondb.net/sprites/bank/shiny/" + name + ".png";
                         }
 
-                        WebRequest wr = WebRequest.Create(url);
-                        WebResponse response = wr.GetResponse();
+                        try
+                        {
+                            WebRequest wr = WebRequest.Create(url);
+                            WebResponse response = wr.GetResponse();
 
-                        Image pkmn = Image.FromStream(response.GetResponseStream());
-                        pkmn.Save(mainForm.IMG_DIR + name.ToLower() + ".png");
-
-                        genSelectForm.pkmnLoadBar.Value++;
+                            Image pkmn = Image.FromStream(response.GetResponseStream());
+                            pkmn.Save(mainForm.IMG_DIR + name.ToLower() + ".png");
+                            genSelectForm.pkmnLoadBar.Value++;
+                        } catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                            Console.WriteLine(e.StackTrace);
+                        }
                     }
                 }
                 genSelectForm.pkmnLoadBar.Value = 0;
@@ -121,11 +127,13 @@ namespace ShinyCountPlus
                         count++;
                     }
                 }
+                sr.Close();
             }
         }
 
         async void pkmnGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            this.Focus();
             int pkmnGridNum = (e.RowIndex * 10) + (e.ColumnIndex + 1);
             string target = "";
 
@@ -138,23 +146,27 @@ namespace ShinyCountPlus
                 sr.Close();
             }
 
-            if (target != "")
+            try
             {
-                mainForm.target = target;
-                mainForm.targetImgPath = mainForm.IMG_DIR + target + ".png";
-                Console.WriteLine(mainForm.targetImgPath);
-                mainForm.setTargetDisplay();
+                if (target.Length > 0)
+                {
+                    mainForm.target = target;
+                    mainForm.targetImgPath = mainForm.IMG_DIR + target + ".png";
+                    Console.WriteLine(mainForm.targetImgPath);
+                    mainForm.setTargetDisplay();
 
-                targetLbl.Visible = true;
-                targetLbl.Text = "Target set to " + target + "!";
-                await Task.Delay(1250);
-                targetLbl.Visible = false;
+                    targetLbl.Visible = true;
+                    targetLbl.Text = "Target set to " + target + "!";
+                    await Task.Delay(1250);
+                    targetLbl.Visible = false;
 
-                mainForm.save();
+                    mainForm.save();
+                }
             }
+            catch (Exception) { }
         }
 
-        #region Tool Bar
+        #region Tools
         private void exitIcon_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -173,6 +185,19 @@ namespace ShinyCountPlus
                 Point p = PointToScreen(e.Location);
                 Location = new Point(p.X - startPoint.X, p.Y - startPoint.Y);
             }
+        }
+
+        private void TargetSelectForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+        private void TargetSelectForm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            e.IsInputKey = true;
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

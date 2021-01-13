@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.sidePanel = new System.Windows.Forms.Panel();
+            this.paypalPanel = new System.Windows.Forms.Panel();
+            this.aboutPanel = new System.Windows.Forms.Panel();
+            this.gitHubPanel = new System.Windows.Forms.Panel();
             this.optionsSubPanel = new System.Windows.Forms.Panel();
+            this.incrementPanel = new System.Windows.Forms.Panel();
+            this.incrementUpDown = new System.Windows.Forms.NumericUpDown();
+            this.incrementLbl = new System.Windows.Forms.Label();
             this.accentPanel = new System.Windows.Forms.Panel();
             this.accentLbl = new System.Windows.Forms.Label();
             this.opacityPanel = new System.Windows.Forms.Panel();
@@ -42,7 +49,7 @@
             this.targetPanel = new System.Windows.Forms.Panel();
             this.targetLbl = new System.Windows.Forms.Label();
             this.padPanel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.sidebarBgPanel = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.titleLbl = new System.Windows.Forms.Label();
             this.countLbl = new System.Windows.Forms.Label();
@@ -53,8 +60,11 @@
             this.underlinePanel = new System.Windows.Forms.Panel();
             this.exitIcon = new System.Windows.Forms.Panel();
             this.targetDisplayBtn = new System.Windows.Forms.Button();
+            this.methodDisplayBtn = new System.Windows.Forms.Button();
             this.sidePanel.SuspendLayout();
             this.optionsSubPanel.SuspendLayout();
+            this.incrementPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.incrementUpDown)).BeginInit();
             this.accentPanel.SuspendLayout();
             this.opacityPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opacitySlider)).BeginInit();
@@ -69,25 +79,115 @@
             // 
             this.sidePanel.AutoScroll = true;
             this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.sidePanel.Controls.Add(this.paypalPanel);
+            this.sidePanel.Controls.Add(this.aboutPanel);
+            this.sidePanel.Controls.Add(this.gitHubPanel);
             this.sidePanel.Controls.Add(this.optionsSubPanel);
             this.sidePanel.Controls.Add(this.optionsPanel);
             this.sidePanel.Controls.Add(this.methodPanel);
             this.sidePanel.Controls.Add(this.targetPanel);
             this.sidePanel.Controls.Add(this.padPanel);
-            this.sidePanel.Location = new System.Drawing.Point(434, 0);
+            this.sidePanel.Location = new System.Drawing.Point(301, 0);
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(253, 648);
             this.sidePanel.TabIndex = 0;
             // 
+            // paypalPanel
+            // 
+            this.paypalPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("paypalPanel.BackgroundImage")));
+            this.paypalPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.paypalPanel.Location = new System.Drawing.Point(103, 598);
+            this.paypalPanel.Name = "paypalPanel";
+            this.paypalPanel.Size = new System.Drawing.Size(50, 50);
+            this.paypalPanel.TabIndex = 6;
+            this.paypalPanel.Click += new System.EventHandler(this.paypalPanel_Click);
+            this.paypalPanel.MouseEnter += new System.EventHandler(this.paypalPanel_MouseEnter);
+            this.paypalPanel.MouseLeave += new System.EventHandler(this.paypalPanel_MouseLeave);
+            // 
+            // aboutPanel
+            // 
+            this.aboutPanel.BackgroundImage = global::ShinyCountPlus.Properties.Resources.ask_question_100px;
+            this.aboutPanel.Location = new System.Drawing.Point(181, 598);
+            this.aboutPanel.Name = "aboutPanel";
+            this.aboutPanel.Size = new System.Drawing.Size(50, 50);
+            this.aboutPanel.TabIndex = 6;
+            this.aboutPanel.Click += new System.EventHandler(this.aboutPanel_Click);
+            this.aboutPanel.MouseEnter += new System.EventHandler(this.aboutPanel_MouseEnter);
+            this.aboutPanel.MouseLeave += new System.EventHandler(this.aboutPanel_MouseLeave);
+            // 
+            // gitHubPanel
+            // 
+            this.gitHubPanel.BackgroundImage = global::ShinyCountPlus.Properties.Resources.GitHub_Mark2;
+            this.gitHubPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.gitHubPanel.Location = new System.Drawing.Point(22, 598);
+            this.gitHubPanel.Name = "gitHubPanel";
+            this.gitHubPanel.Size = new System.Drawing.Size(50, 50);
+            this.gitHubPanel.TabIndex = 5;
+            this.gitHubPanel.Click += new System.EventHandler(this.gitHubPanel_Click);
+            this.gitHubPanel.MouseEnter += new System.EventHandler(this.gitHubPanel_MouseEnter);
+            this.gitHubPanel.MouseLeave += new System.EventHandler(this.gitHubPanel_MouseLeave);
+            // 
             // optionsSubPanel
             // 
             this.optionsSubPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(255)))));
+            this.optionsSubPanel.Controls.Add(this.incrementPanel);
             this.optionsSubPanel.Controls.Add(this.accentPanel);
             this.optionsSubPanel.Controls.Add(this.opacityPanel);
             this.optionsSubPanel.Location = new System.Drawing.Point(0, 242);
             this.optionsSubPanel.Name = "optionsSubPanel";
-            this.optionsSubPanel.Size = new System.Drawing.Size(253, 136);
+            this.optionsSubPanel.Size = new System.Drawing.Size(253, 204);
             this.optionsSubPanel.TabIndex = 3;
+            // 
+            // incrementPanel
+            // 
+            this.incrementPanel.Controls.Add(this.incrementUpDown);
+            this.incrementPanel.Controls.Add(this.incrementLbl);
+            this.incrementPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.incrementPanel.Location = new System.Drawing.Point(0, 136);
+            this.incrementPanel.Name = "incrementPanel";
+            this.incrementPanel.Size = new System.Drawing.Size(253, 68);
+            this.incrementPanel.TabIndex = 2;
+            this.incrementPanel.Click += new System.EventHandler(this.incrementPanel_Click);
+            this.incrementPanel.MouseEnter += new System.EventHandler(this.incrementPanel_MouseEnter);
+            this.incrementPanel.MouseLeave += new System.EventHandler(this.incrementPanel_MouseLeave);
+            // 
+            // incrementUpDown
+            // 
+            this.incrementUpDown.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.incrementUpDown.Font = new System.Drawing.Font("Fredoka One", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incrementUpDown.InterceptArrowKeys = false;
+            this.incrementUpDown.Location = new System.Drawing.Point(161, 17);
+            this.incrementUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.incrementUpDown.Name = "incrementUpDown";
+            this.incrementUpDown.Size = new System.Drawing.Size(58, 33);
+            this.incrementUpDown.TabIndex = 3;
+            this.incrementUpDown.TabStop = false;
+            this.incrementUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.incrementUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.incrementUpDown.Visible = false;
+            this.incrementUpDown.ValueChanged += new System.EventHandler(this.incrementUpDown_ValueChanged);
+            // 
+            // incrementLbl
+            // 
+            this.incrementLbl.AutoSize = true;
+            this.incrementLbl.Font = new System.Drawing.Font("Fredoka One", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incrementLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.incrementLbl.Location = new System.Drawing.Point(21, 22);
+            this.incrementLbl.Name = "incrementLbl";
+            this.incrementLbl.Size = new System.Drawing.Size(114, 25);
+            this.incrementLbl.TabIndex = 2;
+            this.incrementLbl.Text = "Increment";
+            this.incrementLbl.Click += new System.EventHandler(this.incrementPanel_Click);
+            this.incrementLbl.MouseEnter += new System.EventHandler(this.incrementPanel_MouseEnter);
+            this.incrementLbl.MouseLeave += new System.EventHandler(this.incrementPanel_MouseLeave);
             // 
             // accentPanel
             // 
@@ -189,6 +289,7 @@
             this.methodPanel.Name = "methodPanel";
             this.methodPanel.Size = new System.Drawing.Size(253, 60);
             this.methodPanel.TabIndex = 2;
+            this.methodPanel.Click += new System.EventHandler(this.methodPanel_Click);
             this.methodPanel.MouseEnter += new System.EventHandler(this.methodPanel_MouseEnter);
             this.methodPanel.MouseLeave += new System.EventHandler(this.methodPanel_MouseLeave);
             // 
@@ -202,6 +303,7 @@
             this.methodLbl.Size = new System.Drawing.Size(102, 29);
             this.methodLbl.TabIndex = 1;
             this.methodLbl.Text = "Method";
+            this.methodLbl.Click += new System.EventHandler(this.methodPanel_Click);
             this.methodLbl.MouseEnter += new System.EventHandler(this.methodPanel_MouseEnter);
             this.methodLbl.MouseLeave += new System.EventHandler(this.methodPanel_MouseLeave);
             // 
@@ -233,29 +335,29 @@
             // 
             // padPanel
             // 
-            this.padPanel.Controls.Add(this.panel1);
+            this.padPanel.Controls.Add(this.sidebarBgPanel);
             this.padPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.padPanel.Location = new System.Drawing.Point(0, 0);
             this.padPanel.Name = "padPanel";
             this.padPanel.Size = new System.Drawing.Size(253, 62);
             this.padPanel.TabIndex = 0;
             // 
-            // panel1
+            // sidebarBgPanel
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(253, 62);
-            this.panel1.TabIndex = 0;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Main_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Main_MouseUp);
+            this.sidebarBgPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidebarBgPanel.Location = new System.Drawing.Point(0, 0);
+            this.sidebarBgPanel.Name = "sidebarBgPanel";
+            this.sidebarBgPanel.Size = new System.Drawing.Size(253, 62);
+            this.sidebarBgPanel.TabIndex = 0;
+            this.sidebarBgPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
+            this.sidebarBgPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Main_MouseMove);
+            this.sidebarBgPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Main_MouseUp);
             // 
             // titleLbl
             // 
             this.titleLbl.AutoSize = true;
             this.titleLbl.Font = new System.Drawing.Font("Fredoka One", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLbl.Location = new System.Drawing.Point(51, 9);
+            this.titleLbl.Location = new System.Drawing.Point(50, 11);
             this.titleLbl.Name = "titleLbl";
             this.titleLbl.Size = new System.Drawing.Size(126, 23);
             this.titleLbl.TabIndex = 3;
@@ -327,9 +429,9 @@
             // 
             // underlinePanel
             // 
-            this.underlinePanel.Location = new System.Drawing.Point(51, 36);
+            this.underlinePanel.Location = new System.Drawing.Point(53, 38);
             this.underlinePanel.Name = "underlinePanel";
-            this.underlinePanel.Size = new System.Drawing.Size(125, 5);
+            this.underlinePanel.Size = new System.Drawing.Size(118, 3);
             this.underlinePanel.TabIndex = 8;
             // 
             // exitIcon
@@ -357,6 +459,24 @@
             this.targetDisplayBtn.UseVisualStyleBackColor = true;
             this.targetDisplayBtn.Click += new System.EventHandler(this.incrementBtn_Click);
             // 
+            // methodDisplayBtn
+            // 
+            this.methodDisplayBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.methodDisplayBtn.FlatAppearance.BorderSize = 0;
+            this.methodDisplayBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.methodDisplayBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.methodDisplayBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.methodDisplayBtn.Font = new System.Drawing.Font("Fredoka One", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.methodDisplayBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.methodDisplayBtn.Location = new System.Drawing.Point(2, 557);
+            this.methodDisplayBtn.Name = "methodDisplayBtn";
+            this.methodDisplayBtn.Size = new System.Drawing.Size(435, 79);
+            this.methodDisplayBtn.TabIndex = 11;
+            this.methodDisplayBtn.TabStop = false;
+            this.methodDisplayBtn.Text = "Odds: 1/621\r\nMasuda (Gen 4-5)";
+            this.methodDisplayBtn.UseVisualStyleBackColor = true;
+            this.methodDisplayBtn.Click += new System.EventHandler(this.methodDisplayBtn_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -364,6 +484,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(438, 648);
             this.ControlBox = false;
+            this.Controls.Add(this.methodDisplayBtn);
             this.Controls.Add(this.iconColorPanel);
             this.Controls.Add(this.sidePanel);
             this.Controls.Add(this.targetDisplayBtn);
@@ -375,6 +496,7 @@
             this.Controls.Add(this.incrementBtn);
             this.Font = new System.Drawing.Font("Fredoka One", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Main_Load);
@@ -385,6 +507,9 @@
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Main_PreviewKeyDown);
             this.sidePanel.ResumeLayout(false);
             this.optionsSubPanel.ResumeLayout(false);
+            this.incrementPanel.ResumeLayout(false);
+            this.incrementPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.incrementUpDown)).EndInit();
             this.accentPanel.ResumeLayout(false);
             this.accentPanel.PerformLayout();
             this.opacityPanel.ResumeLayout(false);
@@ -422,7 +547,7 @@
         private System.Windows.Forms.Label optionsLbl;
         private System.Windows.Forms.Panel optionsSubPanel;
         private System.Windows.Forms.Panel opacityPanel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel sidebarBgPanel;
         public System.Windows.Forms.Panel optionsPanel;
         private System.Windows.Forms.Label methodLbl;
         public System.Windows.Forms.Panel accentPanel;
@@ -430,6 +555,13 @@
         private System.Windows.Forms.Panel iconColorPanel;
         private System.Windows.Forms.Panel underlinePanel;
         private System.Windows.Forms.Button targetDisplayBtn;
+        private System.Windows.Forms.Button methodDisplayBtn;
+        public System.Windows.Forms.Panel incrementPanel;
+        private System.Windows.Forms.Label incrementLbl;
+        private System.Windows.Forms.NumericUpDown incrementUpDown;
+        private System.Windows.Forms.Panel paypalPanel;
+        private System.Windows.Forms.Panel aboutPanel;
+        private System.Windows.Forms.Panel gitHubPanel;
     }
 }
 

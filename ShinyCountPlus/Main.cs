@@ -27,12 +27,16 @@ namespace ShinyCountPlus
         bool dragging = false;
         Point startPoint = new Point(0, 0);
 
-        Color accentColor = Color.FromArgb(128, 128, 255); // Will pull from save file
+        Color accentColor = Color.FromArgb(0, 0, 0);
 
         bool menuOut = false;
         public int count = 0;
+        public int increment = 1;
         public string target = "";
         public string targetImgPath = "";
+        public string method = "";
+        public int odds = 8192;
+        public bool shinyCharm = false;
 
         public Main()
         {
@@ -43,9 +47,11 @@ namespace ShinyCountPlus
         {
             createDirectories();
             setTargetDisplay();
+            setMethodDisplay();
             sidePanel.Location = new Point(-253, 0);
             optionsSubPanel.Visible = false;
             countLbl.Text = count.ToString();
+            incrementUpDown.Value = increment;
         }
 
         #region Custom methods
@@ -60,6 +66,9 @@ namespace ShinyCountPlus
                 sw.WriteLine("accent_color_r: " + accentColor.R);
                 sw.WriteLine("accent_color_g: " + accentColor.G);
                 sw.WriteLine("accent_color_b: " + accentColor.B);
+                sw.WriteLine("method: " + method);
+                sw.WriteLine("increment: " + increment);
+                sw.WriteLine("shiny charm: " + shinyCharm);
                 sw.Close();
             }
         }
@@ -80,6 +89,10 @@ namespace ShinyCountPlus
                     int r = int.Parse(sr.ReadLine().Split(':')[1]);
                     int g = int.Parse(sr.ReadLine().Split(':')[1]);
                     int b = int.Parse(sr.ReadLine().Split(':')[1]);
+
+                    method = sr.ReadLine().Split(new string[] { ": " }, StringSplitOptions.None)[1];
+                    increment = int.Parse(sr.ReadLine().Split(':')[1]);
+                    shinyCharm = bool.Parse(sr.ReadLine().Split(':')[1]);
 
                     sr.Close();
                     setAccentColor(Color.FromArgb(r, g, b));
@@ -126,14 +139,55 @@ namespace ShinyCountPlus
             }
             count += increment;
             countLbl.Text = count.ToString();
+            updateOdds();
             save();
+        }
+
+        public void setMethod(String method)
+        {
+            this.method = method;
+            setMethodDisplay();
+        }
+
+        // Display the currently selected method and odds
+        public void setMethodDisplay()
+        {
+            if (this.method != "")
+            {
+                try
+                {
+                    methodDisplayBtn.Text = "Odds: 1/" + Odds.getOdds(method, count, shinyCharm) + "\n" + method;
+                }
+                catch (Exception e) { Console.WriteLine(e.Message); }
+            }
+        }
+
+        // Check if current method requires updating odds dynamically, update them if so
+        public void updateOdds()
+        {
+            //Console.WriteLine(method);
+            string[] dynamicMethods =
+            {
+                "SoS Calls", "Catch Combo (No Lure)", "Catch Combo (With Lure)", "Chain Fishing", "Dex Nav", "Poke Radar (Gen 4)", "Poke Radar (Gen 6)"
+            };
+
+            if (dynamicMethods.Contains(method))
+            {
+                setOdds(Odds.getOdds(method, count, shinyCharm));
+                setMethodDisplay();
+            }
+        }
+
+        public void setOdds(int odds)
+        {
+            this.odds = odds;
         }
 
         // Set accent color
         public void setAccentColor(Color c)
         {
-            Control[] normalAccentControls = { sidePanel, panel1, optionsPanel, targetPanel, methodPanel, iconColorPanel, underlinePanel, iconColorPanel };
-            Control[] darkAccentControls = { optionsSubPanel, opacityPanel };
+            Control[] normalAccentControls = { sidePanel, sidebarBgPanel, optionsPanel, targetPanel, methodPanel, iconColorPanel, underlinePanel, iconColorPanel };
+            Control[] darkAccentControls = { optionsSubPanel, opacityPanel, incrementPanel };
             accentColor = c;
             save();
             
@@ -147,11 +201,20 @@ namespace ShinyCountPlus
                 ctrl.BackColor = Color.FromArgb(c.R - 16, c.G - 16, c.B);
             }
             countLbl.ForeColor = c;
+            methodDisplayBtn.ForeColor = c;
+            incrementUpDown.ForeColor = c;
         }
 
         public Color getAccentColor()
         {
             return accentColor;
+        }
+
+        public void setShinyCharm(bool charm)
+        {
+            shinyCharm = charm;
+            setOdds(Odds.getOdds(method, count, shinyCharm));
+            setMethodDisplay();
         }
 
         // Expand the side panel in a smooth sliding animation
@@ -248,13 +311,14 @@ namespace ShinyCountPlus
         }
         #endregion
 
-        #region Main events
+        #region Other event handlers
         async void menuIcon_MouseClick(object sender, MouseEventArgs e)
         {
             if (!menuOut)
             {
                 menuIcon.BackgroundImage = Resources.menu_icon_open;
                 sidePanel.Visible = true;
+                methodDisplayBtn.SendToBack();
                 animateSidePanel();
                 menuOut = true;
             }
@@ -264,19 +328,27 @@ namespace ShinyCountPlus
                 menuOut = false;
                 incrementBtn.Focus();
                 await Task.Delay(125);
+                methodDisplayBtn.BringToFront();
+                incrementUpDown.Visible = false;
                 menuIcon.BackgroundImage = Resources.menu_icon_close;
                 await Task.Delay(200);
                 sidePanel.Visible = false;
             }
         }
+
         private void incrementBtn_Click(object sender, EventArgs e)
         {
-            updateCount();
+            updateCount(increment);
         }
 
         private void countLbl_Click(object sender, EventArgs e)
         {
-            updateCount();
+            updateCount(increment);
+        }
+
+        private void methodDisplayBtn_Click(object sender, EventArgs e)
+        {
+            updateCount(increment);
         }
         #endregion
 
@@ -285,11 +357,11 @@ namespace ShinyCountPlus
         {
             if (e.KeyCode == Keys.Up)
             {
-                updateCount();
+                updateCount(increment);
             }
             else if (e.KeyCode == Keys.Down)
             {
-                updateCount(-1);
+                updateCount(0 - increment);
             } else if (e.KeyCode == Keys.R)
             {
                 count = 0;
@@ -329,12 +401,20 @@ namespace ShinyCountPlus
 
         private void targetPanel_Click(object sender, EventArgs e)
         {
-            GenSelectForm tf = new GenSelectForm(this);
-            tf.ShowDialog();
+            menuIcon_MouseClick(sender, (MouseEventArgs)e);
+            GenSelectForm gsf = new GenSelectForm(this);
+            gsf.ShowDialog();
         }
         #endregion
 
         #region - Select Method
+        private void methodPanel_Click(object sender, EventArgs e)
+        {
+            menuIcon_MouseClick(sender, (MouseEventArgs)e);
+            MethodSelectForm msf = new MethodSelectForm(this);
+            msf.ShowDialog();
+        }
+
         private void methodPanel_MouseEnter(object sender, EventArgs e)
         {
             highlightPanelOnEnter(methodPanel, false);
@@ -402,6 +482,80 @@ namespace ShinyCountPlus
         {
             AccentColorForm acf = new AccentColorForm(this);
             acf.ShowDialog();
+        }
+
+        private void incrementPanel_Click(object sender, EventArgs e)
+        {
+            if (!incrementUpDown.Visible)
+            {
+                incrementUpDown.Visible = true;
+            } else
+            {
+                incrementUpDown.Visible = false;
+            }
+        }
+
+        private void incrementUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            increment = (int)incrementUpDown.Value;
+            save();
+        }
+
+        private void incrementPanel_MouseEnter(object sender, EventArgs e)
+        {
+            highlightPanelOnEnter(incrementPanel, true);
+        }
+
+        private void incrementPanel_MouseLeave(object sender, EventArgs e)
+        {
+            unhighlightPanelOnLeave(incrementPanel, true);
+        }
+        #endregion
+
+        #region - Bottom Buttons
+        private void gitHubPanel_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Syntthetix/ShinyCountPlus");
+        }
+
+        private void paypalPanel_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://paypal.me/Syntthetix");
+        }
+
+        private void aboutPanel_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.pokecommunity.com/showthread.php?t=444223");
+        }
+
+        private void gitHubPanel_MouseEnter(object sender, EventArgs e)
+        {
+            highlightPanelOnEnter(gitHubPanel, false);
+        }
+
+        private void gitHubPanel_MouseLeave(object sender, EventArgs e)
+        {
+            unhighlightPanelOnLeave(gitHubPanel, false);
+        }
+
+        private void paypalPanel_MouseEnter(object sender, EventArgs e)
+        {
+            highlightPanelOnEnter(paypalPanel, false);
+        }
+
+        private void paypalPanel_MouseLeave(object sender, EventArgs e)
+        {
+            unhighlightPanelOnLeave(paypalPanel, false);
+        }
+
+        private void aboutPanel_MouseEnter(object sender, EventArgs e)
+        {
+            highlightPanelOnEnter(aboutPanel, false);
+        }
+
+        private void aboutPanel_MouseLeave(object sender, EventArgs e)
+        {
+            unhighlightPanelOnLeave(aboutPanel, false);
         }
         #endregion
         #endregion

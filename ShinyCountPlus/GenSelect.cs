@@ -28,6 +28,7 @@ namespace ShinyCountPlus
 
         private void TargetForm_Load(object sender, EventArgs e)
         {
+            this.Focus();
             accentColor = mainForm.getAccentColor();
             setAccentColor();
         }
@@ -132,7 +133,7 @@ namespace ShinyCountPlus
         }
         #endregion
 
-        #region Tool bar
+        #region Tools
         private void exitIcon_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -156,6 +157,19 @@ namespace ShinyCountPlus
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
+        }
+
+        private void GenSelectForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+        private void GenSelectForm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            e.IsInputKey = true;
         }
         #endregion
     }

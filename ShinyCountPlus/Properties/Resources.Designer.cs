@@ -63,6 +63,16 @@ namespace ShinyCountPlus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ask_question_100px {
+            get {
+                object obj = ResourceManager.GetObject("ask_question_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bg {
             get {
                 object obj = ResourceManager.GetObject("bg", resourceCulture);
@@ -558,6 +568,16 @@ namespace ShinyCountPlus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GitHub_Mark2 {
+            get {
+                object obj = ResourceManager.GetObject("GitHub-Mark2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_delete_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_delete_32px", resourceCulture);
@@ -591,6 +611,16 @@ namespace ShinyCountPlus.Properties {
         internal static System.Drawing.Bitmap menu_icon_open {
             get {
                 object obj = ResourceManager.GetObject("menu_icon_open", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paypal_logo {
+            get {
+                object obj = ResourceManager.GetObject("paypal logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
