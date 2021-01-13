@@ -468,9 +468,9 @@
             this.methodDisplayBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.methodDisplayBtn.Font = new System.Drawing.Font("Fredoka One", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.methodDisplayBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.methodDisplayBtn.Location = new System.Drawing.Point(75, 560);
+            this.methodDisplayBtn.Location = new System.Drawing.Point(2, 557);
             this.methodDisplayBtn.Name = "methodDisplayBtn";
-            this.methodDisplayBtn.Size = new System.Drawing.Size(294, 79);
+            this.methodDisplayBtn.Size = new System.Drawing.Size(435, 79);
             this.methodDisplayBtn.TabIndex = 11;
             this.methodDisplayBtn.TabStop = false;
             this.methodDisplayBtn.Text = "Odds: 1/621\r\nMasuda (Gen 4-5)";
@@ -496,6 +496,7 @@
             this.Controls.Add(this.incrementBtn);
             this.Font = new System.Drawing.Font("Fredoka One", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Main_Load);

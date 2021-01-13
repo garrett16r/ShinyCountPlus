@@ -32,6 +32,15 @@ namespace ShinyCountPlus
             accentColor = mainForm.getAccentColor();
             shinyCharm = mainForm.shinyCharm;
 
+            if (!shinyCharm)
+            {
+                shinyCharmBtn.Text = "Shiny Charm Off";
+            } else
+            {
+                shinyCharmBtn.Text = "Shiny Charm On";
+            }
+            updateNonCharmMethods();
+
             #region Add controls to accentControls<>
             accentControls.Add(shinyCharmBtn);
             accentControls.Add(re1Btn);
@@ -63,23 +72,33 @@ namespace ShinyCountPlus
             }
         }
 
+        private void updateNonCharmMethods()
+        {
+            if (!shinyCharm)
+            {
+                friendSafariBtn.Enabled = true;
+                oldMasudaBtn.Enabled = true;
+            } else
+            {
+                friendSafariBtn.Enabled = false;
+                oldMasudaBtn.Enabled = false;
+            }
+        }
+
         private void shinyCharmBtn_Click(object sender, EventArgs e)
         {
             if (!shinyCharm)
             {
                 shinyCharmBtn.Text = "Shiny Charm On";
                 shinyCharm = true;
-                radar1Btn.Enabled = false;
-                radar2Btn.Enabled = false;
-                friendSafariBtn.Enabled = false;
+                mainForm.setShinyCharm(true);
             } else
             {
                 shinyCharmBtn.Text = "Shiny Charm Off";
                 shinyCharm = false;
-                radar1Btn.Enabled = true;
-                radar2Btn.Enabled = true;
-                friendSafariBtn.Enabled = true;
+                mainForm.setShinyCharm(false);
             }
+            updateNonCharmMethods();
         }
 
         #region Method buttons
@@ -129,6 +148,54 @@ namespace ShinyCountPlus
         {
             mainForm.setOdds(Odds.getOdds("SoS Calls", mainForm.count, shinyCharm));
             mainForm.setMethod("SoS Calls");
+        }
+
+        private void combo1Btn_Click(object sender, EventArgs e)
+        {
+            mainForm.setOdds(Odds.getOdds("Catch Combo (With Lure)", mainForm.count, shinyCharm));
+            mainForm.setMethod("Catch Combo (With Lure)");
+        }
+
+        private void combo2Btn_Click(object sender, EventArgs e)
+        {
+            mainForm.setOdds(Odds.getOdds("Catch Combo (No Lure)", mainForm.count, shinyCharm));
+            mainForm.setMethod("Catch Combo (No Lure)");
+        }
+
+        private void dexNavBtn_Click(object sender, EventArgs e)
+        {
+            mainForm.setOdds(Odds.getOdds("Dex Nav", mainForm.count, shinyCharm));
+            mainForm.setMethod("Dex Nav");
+        }
+
+        private void chainFishBtn_Click(object sender, EventArgs e)
+        {
+            mainForm.setOdds(Odds.getOdds("Chain Fishing", mainForm.count, shinyCharm));
+            mainForm.setMethod("Chain Fishing");
+        }
+
+        private void hordeBtn_Click(object sender, EventArgs e)
+        {
+            mainForm.setOdds(Odds.getOdds("Hordes", mainForm.count, shinyCharm));
+            mainForm.setMethod("Hordes");
+        }
+
+        private void adventureBtn_Click(object sender, EventArgs e)
+        {
+            mainForm.setOdds(Odds.getOdds("Dynamax Adventures", mainForm.count, shinyCharm));
+            mainForm.setMethod("Dynamax Adventures");
+        }
+
+        private void radar1Btn_Click(object sender, EventArgs e)
+        {
+            mainForm.setOdds(Odds.getOdds("Poke Radar (Gen 4)", mainForm.count, shinyCharm));
+            mainForm.setMethod("Poke Radar (Gen 4)");
+        }
+
+        private void radar2Btn_Click(object sender, EventArgs e)
+        {
+            mainForm.setOdds(Odds.getOdds("Poke Radar (Gen 6)", mainForm.count, shinyCharm));
+            mainForm.setMethod("Poke Radar (Gen 6)");
         }
         #endregion
 

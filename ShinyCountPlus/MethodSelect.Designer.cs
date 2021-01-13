@@ -68,7 +68,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(579, 29);
+            this.panel1.Size = new System.Drawing.Size(592, 29);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -78,7 +78,7 @@
             // 
             this.exitIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.exitIcon.BackgroundImage = global::ShinyCountPlus.Properties.Resources.icons8_delete_32px;
-            this.exitIcon.Location = new System.Drawing.Point(544, -2);
+            this.exitIcon.Location = new System.Drawing.Point(557, -2);
             this.exitIcon.Name = "exitIcon";
             this.exitIcon.Size = new System.Drawing.Size(32, 32);
             this.exitIcon.TabIndex = 8;
@@ -94,7 +94,7 @@
             this.shinyCharmBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.shinyCharmBtn.Location = new System.Drawing.Point(0, 29);
             this.shinyCharmBtn.Name = "shinyCharmBtn";
-            this.shinyCharmBtn.Size = new System.Drawing.Size(579, 62);
+            this.shinyCharmBtn.Size = new System.Drawing.Size(592, 62);
             this.shinyCharmBtn.TabIndex = 1;
             this.shinyCharmBtn.TabStop = false;
             this.shinyCharmBtn.Text = "Shiny Charm Off";
@@ -110,7 +110,7 @@
             this.bgPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.bgPanel.Location = new System.Drawing.Point(0, 91);
             this.bgPanel.Name = "bgPanel";
-            this.bgPanel.Size = new System.Drawing.Size(579, 283);
+            this.bgPanel.Size = new System.Drawing.Size(592, 283);
             this.bgPanel.TabIndex = 2;
             // 
             // panel5
@@ -122,7 +122,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 210);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(579, 70);
+            this.panel5.Size = new System.Drawing.Size(592, 70);
             this.panel5.TabIndex = 4;
             // 
             // adventureBtn
@@ -140,6 +140,7 @@
             this.adventureBtn.TabStop = false;
             this.adventureBtn.Text = "DMax Adv.\r\n(1/300)";
             this.adventureBtn.UseVisualStyleBackColor = false;
+            this.adventureBtn.Click += new System.EventHandler(this.adventureBtn_Click);
             // 
             // sosBtn
             // 
@@ -171,7 +172,7 @@
             this.friendSafariBtn.Size = new System.Drawing.Size(146, 70);
             this.friendSafariBtn.TabIndex = 6;
             this.friendSafariBtn.TabStop = false;
-            this.friendSafariBtn.Text = "Friend Safari\r\n(~1/512)";
+            this.friendSafariBtn.Text = "Friend Safari\r\n(1/512)";
             this.friendSafariBtn.UseVisualStyleBackColor = false;
             this.friendSafariBtn.Click += new System.EventHandler(this.friendSafariBtn_Click);
             // 
@@ -198,7 +199,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 140);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(579, 70);
+            this.panel3.Size = new System.Drawing.Size(592, 70);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -210,7 +211,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(579, 70);
+            this.panel4.Size = new System.Drawing.Size(592, 70);
             this.panel4.TabIndex = 3;
             // 
             // dexNavBtn
@@ -226,8 +227,9 @@
             this.dexNavBtn.Size = new System.Drawing.Size(147, 70);
             this.dexNavBtn.TabIndex = 4;
             this.dexNavBtn.TabStop = false;
-            this.dexNavBtn.Text = "Dex Nav\r\n(~1/512)";
+            this.dexNavBtn.Text = "Dex Nav";
             this.dexNavBtn.UseVisualStyleBackColor = false;
+            this.dexNavBtn.Click += new System.EventHandler(this.dexNavBtn_Click);
             // 
             // hordeBtn
             // 
@@ -244,6 +246,7 @@
             this.hordeBtn.TabStop = false;
             this.hordeBtn.Text = "Hordes\r\n(1/819)";
             this.hordeBtn.UseVisualStyleBackColor = false;
+            this.hordeBtn.Click += new System.EventHandler(this.hordeBtn_Click);
             // 
             // chainFishBtn
             // 
@@ -260,6 +263,7 @@
             this.chainFishBtn.TabStop = false;
             this.chainFishBtn.Text = "Chain Fishing";
             this.chainFishBtn.UseVisualStyleBackColor = false;
+            this.chainFishBtn.Click += new System.EventHandler(this.chainFishBtn_Click);
             // 
             // oldMasudaBtn
             // 
@@ -287,7 +291,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 70);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(579, 70);
+            this.panel2.Size = new System.Drawing.Size(592, 70);
             this.panel2.TabIndex = 1;
             // 
             // combo2Btn
@@ -305,6 +309,7 @@
             this.combo2Btn.TabStop = false;
             this.combo2Btn.Text = "Catch Combo\r\n(No Lure)";
             this.combo2Btn.UseVisualStyleBackColor = false;
+            this.combo2Btn.Click += new System.EventHandler(this.combo2Btn_Click);
             // 
             // radar2Btn
             // 
@@ -321,6 +326,7 @@
             this.radar2Btn.TabStop = false;
             this.radar2Btn.Text = "Radar\r\n(Gen 6)";
             this.radar2Btn.UseVisualStyleBackColor = false;
+            this.radar2Btn.Click += new System.EventHandler(this.radar2Btn_Click);
             // 
             // sr2Btn
             // 
@@ -365,7 +371,7 @@
             this.rowPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.rowPanel1.Location = new System.Drawing.Point(0, 0);
             this.rowPanel1.Name = "rowPanel1";
-            this.rowPanel1.Size = new System.Drawing.Size(579, 70);
+            this.rowPanel1.Size = new System.Drawing.Size(592, 70);
             this.rowPanel1.TabIndex = 0;
             // 
             // combo1Btn
@@ -383,6 +389,7 @@
             this.combo1Btn.TabStop = false;
             this.combo1Btn.Text = "Catch Combo\r\n(Lure)";
             this.combo1Btn.UseVisualStyleBackColor = false;
+            this.combo1Btn.Click += new System.EventHandler(this.combo1Btn_Click);
             // 
             // radar1Btn
             // 
@@ -399,6 +406,7 @@
             this.radar1Btn.TabStop = false;
             this.radar1Btn.Text = "Radar\r\n(Gen 4)";
             this.radar1Btn.UseVisualStyleBackColor = false;
+            this.radar1Btn.Click += new System.EventHandler(this.radar1Btn_Click);
             // 
             // sr1Btn
             // 
@@ -439,7 +447,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.ClientSize = new System.Drawing.Size(579, 362);
+            this.ClientSize = new System.Drawing.Size(592, 370);
             this.ControlBox = false;
             this.Controls.Add(this.bgPanel);
             this.Controls.Add(this.shinyCharmBtn);

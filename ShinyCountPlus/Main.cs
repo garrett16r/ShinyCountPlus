@@ -68,6 +68,7 @@ namespace ShinyCountPlus
                 sw.WriteLine("accent_color_b: " + accentColor.B);
                 sw.WriteLine("method: " + method);
                 sw.WriteLine("increment: " + increment);
+                sw.WriteLine("shiny charm: " + shinyCharm);
                 sw.Close();
             }
         }
@@ -91,6 +92,7 @@ namespace ShinyCountPlus
 
                     method = sr.ReadLine().Split(new string[] { ": " }, StringSplitOptions.None)[1];
                     increment = int.Parse(sr.ReadLine().Split(':')[1]);
+                    shinyCharm = bool.Parse(sr.ReadLine().Split(':')[1]);
 
                     sr.Close();
                     setAccentColor(Color.FromArgb(r, g, b));
@@ -206,6 +208,13 @@ namespace ShinyCountPlus
         public Color getAccentColor()
         {
             return accentColor;
+        }
+
+        public void setShinyCharm(bool charm)
+        {
+            shinyCharm = charm;
+            setOdds(Odds.getOdds(method, count, shinyCharm));
+            setMethodDisplay();
         }
 
         // Expand the side panel in a smooth sliding animation
@@ -516,7 +525,7 @@ namespace ShinyCountPlus
 
         private void aboutPanel_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.Start("https://www.pokecommunity.com/showthread.php?t=444223");
         }
 
         private void gitHubPanel_MouseEnter(object sender, EventArgs e)

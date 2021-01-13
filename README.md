@@ -1,12 +1,19 @@
-# ShinyCountPlus v0.2.0
+# ShinyCountPlus v1.0.0
+## FIRST FULL RELEASE
 Attempt number three at a shiny hunting counter for the Pokemon games. Better UI, better optimization, better features.
 
+## Features
+- Select and display current target Pokemon
+- Select current hunting method
+- Display hunting method and current odds on main screen
+- Set custom interval for counter (great for multi-system hunting)
+- Set window opacity (great for multitasking)
+- Choose from four accent color options (more to come)
+
 ## Todo
-- Add method selection
-- Add current odds display
-- Mark target as caught, view caught targets in nice grid view
-- Set custom interval for counter
+- Mark target as caught, view caught targets in nice grid view (maybe)
 - Enter custom encounter value for picking up previous hunts
+- See if there's a way to auto-install needed font
 
 ## Installation
 - Go to the releases page, where the newest version will be at the top

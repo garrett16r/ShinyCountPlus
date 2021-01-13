@@ -9,10 +9,13 @@ namespace ShinyCountPlus
 {
     class Odds
     {
+        static int shinyCharmBin;
+
+        #region Odds
         // Static odds
         public static int[] fullOdds1 = { 8192, 2731 };
         public static int[] fullOdds2 = { 4096, 1365 };
-        public static int[] masudaOdds1 = { 1365, 1365 };
+        public static int masudaOdds1 = 1365;
         public static int[] masudaOdds2 = { 683, 512 };
         public static int[] hordesOdds = { 819, 273 };
         public static int[] adventureOdds = { 300, 100 };
@@ -67,23 +70,37 @@ namespace ShinyCountPlus
         };
 
         // Radar odds hardly change with charm, and the difference doesn't seem to be well known (at least for gen 6)
-        public static int[] radarOdds1 =
+        public static int[,] radarOdds1 = new int[2, 41]
         {
-            8192, 8192, 7282, 7282, 7282, 7282, 6554, 6554, 6554, 5958, 5958, 5958, 5461, 5461, 5041,
-            5041, 4681, 4681, 4369, 4096, 4096, 3855, 3641, 3449, 3277, 2979, 2849, 2621, 2427, 2185, 
-            1986, 1820,  1598, 1394, 1192, 993, 799, 601, 400, 200
+            { 
+                8192, 8192, 8192, 7282, 7282, 7282, 7282, 6554, 6554, 6554, 5958, 5958, 5958, 5461, 5461, 5041,
+                5041, 4681, 4681, 4369, 4096, 4096, 3855, 3641, 3449, 3277, 2979, 2849, 2621, 2427, 2185,
+                1986, 1820,  1598, 1394, 1192, 993, 799, 601, 400, 200 
+            },
+            {
+                2731, 2731, 2731, 2427, 2427, 2427, 2427, 2185, 2185, 2185, 1986, 1986, 1986, 1820, 1820, 1680,
+                1680, 1560, 1560, 1456, 1365, 1365, 1285, 1214, 1150, 1092, 993, 950, 874, 809, 728,
+                662, 607, 533, 465, 397, 331, 266, 200, 200, 200
+            }
         };
-        public static int[] radarOdds2 =
-        { 
-            4096, 4096, 3855, 3855, 3641, 3641, 3449, 3449, 3277, 3277, 3121, 2979, 2849, 2849, 2731,
-            2621, 2521, 2427, 2341, 2185, 2114, 1986, 1928, 1820, 1680, 1598, 1489, 1394, 1311, 1192, 
-            1092, 993, 898, 799, 697, 601, 500, 400, 301, 200
+        public static int[,] radarOdds2 = new int[2, 41]
+        {
+            {
+                4096, 4096, 4096, 3855, 3855, 3641, 3641, 3449, 3449, 3277, 3277, 3121, 2979, 2849, 2849, 2731,
+                2621, 2521, 2427, 2341, 2185, 2114, 1986, 1928, 1820, 1680, 1598, 1489, 1394, 1311, 1192,
+                1092, 993, 898, 799, 697, 601, 500, 400, 301, 200
+            },
+            {
+                1365, 1365, 1365, 1285, 1285, 1214, 1214, 1150, 1150, 1092, 1092, 1040, 993, 950, 950, 910,
+                874, 840, 809, 780, 728, 705, 662, 643, 607, 560, 533, 496, 465, 437, 397,
+                364, 331, 299, 266, 232, 200, 200, 200, 200, 200
+            }
         };
+        #endregion
 
         public static int getOdds(String method, int encounters, bool shinyCharm)
         {
             // Used to decide whether to grab the non-shiny charm odds (Array index 0) or shiny charm odds (Array index 1)
-            int shinyCharmBin;
             if (!shinyCharm)
             {
                 shinyCharmBin = 0;
@@ -93,37 +110,19 @@ namespace ShinyCountPlus
             }
 
             if (method == "REs (Gen 1-5)" || method == "SRs (Gen 1-5)")
-                {
-                    if (!shinyCharm)
-                    {
-                        return fullOdds1[0];
-                    } else
-                    {
-                        return fullOdds1[1];
-                    }
-                }
+            {
+                return fullOdds1[shinyCharmBin];
+            }
 
-            if (method == "REs (Gen 1-5)" || method == "SRs(Gen 1 - 5)")
-                {
-                    if (!shinyCharm)
-                    {
-                        return fullOdds2[0];
-                    } else
-                    {
-                        return fullOdds2[1];
-                    }
-                }
+            if (method == "REs (Gen 6+)" || method == "SRs (Gen 6+)")
+            {
+                return fullOdds2[shinyCharmBin];
+            }
 
             if (method == "Hordes")
-                {
-                    if (!shinyCharm)
-                    {
-                        return hordesOdds[0];
-                    } else
-                    {
-                        return hordesOdds[1];
-                    }
-                }
+            {
+                return hordesOdds[shinyCharmBin];
+            }
 
             if (method == "Friend Safari")
                 {
@@ -131,75 +130,59 @@ namespace ShinyCountPlus
                 }
 
             if (method == "Dynamax Adventures")
-                {
-                    if (!shinyCharm)
-                    {
-                        return adventureOdds[0];
-                    } else
-                    {
-                        return adventureOdds[1];
-                    }
-                }
+            {
+                return adventureOdds[shinyCharmBin];
+            }
 
             if (method == "Masuda (Gen 4-5)")
-                {
-                    if (!shinyCharm)
-                    {
-                        return masudaOdds1[0];
-                    } else
-                    {
-                        return masudaOdds1[1];
-                    }
-                }
+            {
+                return masudaOdds1;
+            }
 
             if (method == "Masuda (Gen 6+)")
-                {
-                    if (!shinyCharm)
-                    {
-                        return masudaOdds2[0];
-                    } else
-                    {
-                        return masudaOdds2[1];
-                    }
-                }
+            {
+                return masudaOdds2[shinyCharmBin];
+            }
 
             if (method == "Catch Combo (No Lure)")
-                {
-                    if (!shinyCharm)
-                    {
-                        return getComboOdds(false, encounters, shinyCharmBin);
-                    } else
-                    {
-                        return getComboOdds(false, encounters, shinyCharmBin);
-                    }
-                }
+            {
+                return getComboOdds(false, encounters);
+            }
 
             if (method == "Catch Combo (With Lure)")
-                {
-                    if (!shinyCharm)
-                    {
-                        return getComboOdds(true, encounters, shinyCharmBin);
-                    } else
-                    {
-                        return getComboOdds(true, encounters, shinyCharmBin);
-                    }
-                }
+            {
+                return getComboOdds(true, encounters);
+            }
 
             if (method == "SoS Calls")
-                {
-                    if (!shinyCharm)
-                    {
-                        return getSosOdds(encounters, shinyCharmBin);
-                    } else
-                    {
-                        return getSosOdds(encounters, shinyCharmBin);
-                    }
-                }
+            {
+                return getSosOdds(encounters);
+            }
+
+            if (method == "Dex Nav")
+            {
+                return getDexOdds(encounters);
+            }
+
+            if (method == "Chain Fishing")
+            {
+                return getChainFishOdds(encounters);
+            }
+
+            if (method == "Poke Radar (Gen 4)")
+            {
+                return getRadar4Odds(encounters);
+            }
+
+            if (method == "Poke Radar (Gen 6)")
+            {
+                return getRadar6Odds(encounters);
+            }
 
             return 8192;
         }
 
-        public static int getComboOdds(bool lure, int encounters, int shinyCharmBin)
+        public static int getComboOdds(bool lure, int encounters)
         {
             if (!lure)
             {
@@ -238,7 +221,7 @@ namespace ShinyCountPlus
             }
         }
 
-        public static int getSosOdds(int encounters, int shinyCharmBin)
+        public static int getSosOdds(int encounters)
         {
             if (encounters < 70)
             {
@@ -247,6 +230,55 @@ namespace ShinyCountPlus
             {
                 return sosOdds[shinyCharmBin, 1];
             }
+        }
+
+        public static int getDexOdds(int encounters) 
+        {
+            if (encounters < 100)
+            {
+                return dexNavOdds[shinyCharmBin, 0];
+            } 
+
+            if (encounters >= 999)
+            {
+                return dexNavOdds[shinyCharmBin, 19];
+            }
+
+            // Odds update every interval of 50 (except for pre-100 & 999+) on the search level indicator, so current odds can be found by dividing search level by 50
+            int oddsIndex = 1;
+            oddsIndex = (encounters / 50) - 1;
+
+            return dexNavOdds[shinyCharmBin, oddsIndex];
+        }
+
+        public static int getChainFishOdds(int encounters)
+        {
+            if (encounters >= 20)
+            {
+                return chainFishOdds[shinyCharmBin, 20];
+            }
+
+            return chainFishOdds[shinyCharmBin, encounters];
+        }
+
+        public static int getRadar4Odds(int encounters)
+        {
+            if (encounters >= 40)
+            {
+                return radarOdds1[shinyCharmBin, 40];
+            }
+
+            return radarOdds1[shinyCharmBin, encounters];
+        }
+
+        public static int getRadar6Odds(int encounters)
+        {
+            if (encounters >= 40)
+            {
+                return radarOdds2[shinyCharmBin, 40];
+            }
+
+            return radarOdds2[shinyCharmBin, encounters];
         }
     }
 }
