@@ -27,7 +27,7 @@ namespace ShinyCountPlus
         bool dragging = false;
         Point startPoint = new Point(0, 0);
 
-        Color accentColor = Color.FromArgb(0, 0, 0);
+        Color accentColor = Color.FromArgb(128, 128, 255);
 
         bool menuOut = false;
         public int count = 0;
