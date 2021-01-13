@@ -14,6 +14,7 @@ Attempt number three at a shiny hunting counter for the Pokemon games. Better UI
 - Mark target as caught, view caught targets in nice grid view (maybe)
 - Enter custom encounter value for picking up previous hunts
 - See if there's a way to auto-install needed font
+- Discord Rish Presence?
 
 ## Installation
 - Go to the releases page, where the newest version will be at the top
