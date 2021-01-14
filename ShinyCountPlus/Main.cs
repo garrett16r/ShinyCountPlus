@@ -132,11 +132,17 @@ namespace ShinyCountPlus
         {
             if (increment < 0)
             {
+                animateCounter(0);
                 if (count == 0)
                 {
                     return;
                 }
+            } else
+            {
+                animateCounter(1);
             }
+
+
             count += increment;
             countLbl.Text = count.ToString();
             updateOdds();
@@ -381,12 +387,10 @@ namespace ShinyCountPlus
             if (e.KeyCode == Keys.Up)
             {
                 updateCount(increment);
-                animateCounter(1);
             }
             else if (e.KeyCode == Keys.Down)
             {
                 updateCount(0 - increment);
-                animateCounter(0);
             } else if (e.KeyCode == Keys.R)
             {
                 count = 0;
