@@ -2,7 +2,7 @@
 ## FIRST FULL RELEASE
 Attempt number three at a shiny hunting counter for the Pokemon games. Better UI, better optimization, better features.
 
-![Main screen](https://i.imgur.com/5Oeibhx.png) ![Side bar with opacity](https://i.imgur.com/N3AVpDL.png)
+![Main screen](https://i.imgur.com/5Oeibhx.png)
 
 ## Features
 - Select and display current target Pokemon
