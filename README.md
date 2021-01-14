@@ -3,7 +3,14 @@
 ![Banner](https://i.imgur.com/bS5V0n2.png)
 Attempt number three at a shiny hunting counter for the Pokemon games. Better UI, better optimization, better features.
 
-![Main screen](https://i.imgur.com/5Oeibhx.png)
+<details>
+  <summary>Screenshots</summary>
+  
+  ![Main screen](https://i.imgur.com/5Oeibhx.png)
+  ![Side bar with opacity](https://i.imgur.com/N3AVpDL.png)
+  ![Target select](https://i.imgur.com/cjDZqrZ.png)
+  ![Method select](https://i.imgur.com/lB1fu9e.png)
+</details>
 
 ## Features
 - Select and display current target Pokemon
