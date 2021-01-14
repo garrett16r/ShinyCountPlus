@@ -87,7 +87,7 @@
             this.sidePanel.Controls.Add(this.methodPanel);
             this.sidePanel.Controls.Add(this.targetPanel);
             this.sidePanel.Controls.Add(this.padPanel);
-            this.sidePanel.Location = new System.Drawing.Point(301, 0);
+            this.sidePanel.Location = new System.Drawing.Point(434, 0);
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(253, 648);
             this.sidePanel.TabIndex = 0;
@@ -373,9 +373,9 @@
             this.countLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.countLbl.Font = new System.Drawing.Font("Fredoka One", 71.99999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.countLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.countLbl.Location = new System.Drawing.Point(78, 255);
+            this.countLbl.Location = new System.Drawing.Point(78, 260);
             this.countLbl.Name = "countLbl";
-            this.countLbl.Size = new System.Drawing.Size(301, 116);
+            this.countLbl.Size = new System.Drawing.Size(301, 118);
             this.countLbl.TabIndex = 6;
             this.countLbl.Text = "1200";
             this.countLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -383,6 +383,7 @@
             // 
             // incrementBtn
             // 
+            this.incrementBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.incrementBtn.FlatAppearance.BorderSize = 0;
             this.incrementBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.incrementBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
@@ -452,7 +453,7 @@
             this.targetDisplayBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.targetDisplayBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.targetDisplayBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.targetDisplayBtn.Location = new System.Drawing.Point(123, 84);
+            this.targetDisplayBtn.Location = new System.Drawing.Point(126, 85);
             this.targetDisplayBtn.Name = "targetDisplayBtn";
             this.targetDisplayBtn.Size = new System.Drawing.Size(192, 192);
             this.targetDisplayBtn.TabIndex = 10;
@@ -461,20 +462,21 @@
             // 
             // methodDisplayBtn
             // 
+            this.methodDisplayBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.methodDisplayBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.methodDisplayBtn.FlatAppearance.BorderSize = 0;
             this.methodDisplayBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.methodDisplayBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.methodDisplayBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.methodDisplayBtn.Font = new System.Drawing.Font("Fredoka One", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.methodDisplayBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.methodDisplayBtn.Location = new System.Drawing.Point(2, 557);
+            this.methodDisplayBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.methodDisplayBtn.Location = new System.Drawing.Point(0, 564);
             this.methodDisplayBtn.Name = "methodDisplayBtn";
-            this.methodDisplayBtn.Size = new System.Drawing.Size(435, 79);
+            this.methodDisplayBtn.Size = new System.Drawing.Size(440, 84);
             this.methodDisplayBtn.TabIndex = 11;
             this.methodDisplayBtn.TabStop = false;
-            this.methodDisplayBtn.Text = "Odds: 1/621\r\nMasuda (Gen 4-5)";
-            this.methodDisplayBtn.UseVisualStyleBackColor = true;
+            this.methodDisplayBtn.Text = "1/621\r\nMasuda (Gen 4-5)";
+            this.methodDisplayBtn.UseVisualStyleBackColor = false;
             this.methodDisplayBtn.Click += new System.EventHandler(this.methodDisplayBtn_Click);
             // 
             // Main

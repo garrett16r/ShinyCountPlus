@@ -156,7 +156,7 @@ namespace ShinyCountPlus
             {
                 try
                 {
-                    methodDisplayBtn.Text = "Odds: 1/" + Odds.getOdds(method, count, shinyCharm) + "\n" + method;
+                    methodDisplayBtn.Text = "1/" + Odds.getOdds(method, count, shinyCharm) + "\n" + method;
                 }
                 catch (Exception e) { Console.WriteLine(e.Message); }
             }
@@ -165,7 +165,6 @@ namespace ShinyCountPlus
         // Check if current method requires updating odds dynamically, update them if so
         public void updateOdds()
         {
-            //Console.WriteLine(method);
             string[] dynamicMethods =
             {
                 "SoS Calls", "Catch Combo (No Lure)", "Catch Combo (With Lure)", "Chain Fishing", "Dex Nav", "Poke Radar (Gen 4)", "Poke Radar (Gen 6)"
@@ -186,7 +185,11 @@ namespace ShinyCountPlus
         // Set accent color
         public void setAccentColor(Color c)
         {
-            Control[] normalAccentControls = { sidePanel, sidebarBgPanel, optionsPanel, targetPanel, methodPanel, iconColorPanel, underlinePanel, iconColorPanel, gitHubPanel, paypalPanel, aboutPanel };
+            Control[] normalAccentControls = { 
+                sidePanel, sidebarBgPanel, optionsPanel, targetPanel, methodPanel, 
+                iconColorPanel, underlinePanel, iconColorPanel, gitHubPanel, paypalPanel, 
+                aboutPanel, methodDisplayBtn
+            };
             Control[] darkAccentControls = { optionsSubPanel, opacityPanel, incrementPanel };
             accentColor = c;
             save();
@@ -201,8 +204,9 @@ namespace ShinyCountPlus
                 ctrl.BackColor = Color.FromArgb(c.R - 16, c.G - 16, c.B);
             }
             countLbl.ForeColor = c;
-            methodDisplayBtn.ForeColor = c;
             incrementUpDown.ForeColor = c;
+            methodDisplayBtn.FlatAppearance.MouseOverBackColor = c;
+            methodDisplayBtn.FlatAppearance.MouseDownBackColor = c;
         }
 
         public Color getAccentColor()
@@ -225,6 +229,7 @@ namespace ShinyCountPlus
             Point targetBtnLocation = targetDisplayBtn.Location;
             Point titleLocation = titleLbl.Location;
             Point underlineLocation = underlinePanel.Location;
+            Point methodDisplayLocation = methodDisplayBtn.Location;
             int xDelta;
             int titleXDelta; // Title needs to move less, so needs a separate var
 
@@ -242,6 +247,10 @@ namespace ShinyCountPlus
                     targetBtnLocation.X += xDelta;
                 }
 
+                // Move method display
+                methodDisplayBtn.Location = new Point(methodDisplayLocation.X, methodDisplayLocation.Y + titleXDelta);
+                methodDisplayLocation.Y += xDelta;
+
                 // Move title label
                 titleLbl.Location = new Point(titleLocation.X + titleXDelta, titleLocation.Y);
                 titleLocation.X += titleXDelta;
@@ -256,6 +265,22 @@ namespace ShinyCountPlus
 
                 await Task.Delay(10);
             }
+        }
+
+        // Tick the counter up or down when increasing/decreasing value
+        async void animateCounter(int upDown)
+        {
+            Point countPosition = countLbl.Location;
+
+            int yDelta = 2;
+
+            if (upDown == 0) yDelta = -2;
+
+            countLbl.Location = new Point(countPosition.X, countPosition.Y - yDelta);
+            await Task.Delay(50);
+            countLbl.Location = new Point(countPosition.X, countPosition.Y);
+            await Task.Delay(50);
+            countLbl.Location = new Point(countPosition.X, countPosition.Y);
         }
 
         private void showSubMenu(Panel p)
@@ -318,7 +343,6 @@ namespace ShinyCountPlus
             {
                 menuIcon.BackgroundImage = Resources.menu_icon_open;
                 sidePanel.Visible = true;
-                methodDisplayBtn.SendToBack();
                 animateSidePanel();
                 menuOut = true;
             }
@@ -328,7 +352,6 @@ namespace ShinyCountPlus
                 menuOut = false;
                 incrementBtn.Focus();
                 await Task.Delay(125);
-                methodDisplayBtn.BringToFront();
                 incrementUpDown.Visible = false;
                 menuIcon.BackgroundImage = Resources.menu_icon_close;
                 await Task.Delay(200);
@@ -358,10 +381,12 @@ namespace ShinyCountPlus
             if (e.KeyCode == Keys.Up)
             {
                 updateCount(increment);
+                animateCounter(1);
             }
             else if (e.KeyCode == Keys.Down)
             {
                 updateCount(0 - increment);
+                animateCounter(0);
             } else if (e.KeyCode == Keys.R)
             {
                 count = 0;
