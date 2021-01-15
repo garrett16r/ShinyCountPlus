@@ -21,6 +21,7 @@ Attempt number three at a shiny hunting counter for the Pokemon games. Better UI
 - Choose from four accent color options (more to come)
 
 ## Todo
+- Auto check for updates
 - Mark target as caught, view caught targets in nice grid view (maybe)
 - Enter custom encounter value for picking up previous hunts
 - See if there's a way to auto-install needed font
