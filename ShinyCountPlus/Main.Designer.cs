@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.sidePanel = new System.Windows.Forms.Panel();
+            this.versionLbl = new System.Windows.Forms.Label();
             this.paypalPanel = new System.Windows.Forms.Panel();
             this.aboutPanel = new System.Windows.Forms.Panel();
             this.gitHubPanel = new System.Windows.Forms.Panel();
@@ -79,6 +80,7 @@
             // 
             this.sidePanel.AutoScroll = true;
             this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.sidePanel.Controls.Add(this.versionLbl);
             this.sidePanel.Controls.Add(this.paypalPanel);
             this.sidePanel.Controls.Add(this.aboutPanel);
             this.sidePanel.Controls.Add(this.gitHubPanel);
@@ -87,10 +89,22 @@
             this.sidePanel.Controls.Add(this.methodPanel);
             this.sidePanel.Controls.Add(this.targetPanel);
             this.sidePanel.Controls.Add(this.padPanel);
-            this.sidePanel.Location = new System.Drawing.Point(434, 0);
+            this.sidePanel.Location = new System.Drawing.Point(283, 0);
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(253, 648);
             this.sidePanel.TabIndex = 0;
+            // 
+            // versionLbl
+            // 
+            this.versionLbl.AutoSize = true;
+            this.versionLbl.Font = new System.Drawing.Font("Fredoka One", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.versionLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.versionLbl.Location = new System.Drawing.Point(21, 578);
+            this.versionLbl.Name = "versionLbl";
+            this.versionLbl.Size = new System.Drawing.Size(46, 19);
+            this.versionLbl.TabIndex = 0;
+            this.versionLbl.Tag = "11.25";
+            this.versionLbl.Text = "v1.x.x";
             // 
             // paypalPanel
             // 
@@ -166,6 +180,7 @@
             this.incrementUpDown.Size = new System.Drawing.Size(58, 33);
             this.incrementUpDown.TabIndex = 3;
             this.incrementUpDown.TabStop = false;
+            this.incrementUpDown.Tag = "18";
             this.incrementUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.incrementUpDown.Value = new decimal(new int[] {
             1,
@@ -182,8 +197,9 @@
             this.incrementLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.incrementLbl.Location = new System.Drawing.Point(21, 22);
             this.incrementLbl.Name = "incrementLbl";
-            this.incrementLbl.Size = new System.Drawing.Size(114, 25);
+            this.incrementLbl.Size = new System.Drawing.Size(102, 24);
             this.incrementLbl.TabIndex = 2;
+            this.incrementLbl.Tag = "15.75";
             this.incrementLbl.Text = "Increment";
             this.incrementLbl.Click += new System.EventHandler(this.incrementPanel_Click);
             this.incrementLbl.MouseEnter += new System.EventHandler(this.incrementPanel_MouseEnter);
@@ -208,8 +224,9 @@
             this.accentLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.accentLbl.Location = new System.Drawing.Point(21, 22);
             this.accentLbl.Name = "accentLbl";
-            this.accentLbl.Size = new System.Drawing.Size(145, 25);
+            this.accentLbl.Size = new System.Drawing.Size(130, 24);
             this.accentLbl.TabIndex = 2;
+            this.accentLbl.Tag = "15.75";
             this.accentLbl.Text = "Accent Color";
             this.accentLbl.Click += new System.EventHandler(this.accentPanel_Click);
             this.accentLbl.MouseEnter += new System.EventHandler(this.accentPanel_MouseEnter);
@@ -234,8 +251,9 @@
             this.opacityLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.opacityLbl.Location = new System.Drawing.Point(21, 18);
             this.opacityLbl.Name = "opacityLbl";
-            this.opacityLbl.Size = new System.Drawing.Size(96, 25);
+            this.opacityLbl.Size = new System.Drawing.Size(88, 24);
             this.opacityLbl.TabIndex = 1;
+            this.opacityLbl.Tag = "15.75";
             this.opacityLbl.Text = "Opacity:";
             this.opacityLbl.MouseEnter += new System.EventHandler(this.opacityPanel_MouseEnter);
             this.opacityLbl.MouseLeave += new System.EventHandler(this.opacityPanel_MouseLeave);
@@ -274,8 +292,9 @@
             this.optionsLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.optionsLbl.Location = new System.Drawing.Point(3, 15);
             this.optionsLbl.Name = "optionsLbl";
-            this.optionsLbl.Size = new System.Drawing.Size(104, 29);
+            this.optionsLbl.Size = new System.Drawing.Size(97, 29);
             this.optionsLbl.TabIndex = 1;
+            this.optionsLbl.Tag = "18";
             this.optionsLbl.Text = "Options";
             this.optionsLbl.Click += new System.EventHandler(this.optionsLbl_Click);
             this.optionsLbl.MouseEnter += new System.EventHandler(this.optionsPanel_MouseEnter);
@@ -300,8 +319,9 @@
             this.methodLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.methodLbl.Location = new System.Drawing.Point(4, 15);
             this.methodLbl.Name = "methodLbl";
-            this.methodLbl.Size = new System.Drawing.Size(102, 29);
+            this.methodLbl.Size = new System.Drawing.Size(93, 29);
             this.methodLbl.TabIndex = 1;
+            this.methodLbl.Tag = "18";
             this.methodLbl.Text = "Method";
             this.methodLbl.Click += new System.EventHandler(this.methodPanel_Click);
             this.methodLbl.MouseEnter += new System.EventHandler(this.methodPanel_MouseEnter);
@@ -326,8 +346,9 @@
             this.targetLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.targetLbl.Location = new System.Drawing.Point(4, 15);
             this.targetLbl.Name = "targetLbl";
-            this.targetLbl.Size = new System.Drawing.Size(91, 29);
+            this.targetLbl.Size = new System.Drawing.Size(79, 29);
             this.targetLbl.TabIndex = 0;
+            this.targetLbl.Tag = "18";
             this.targetLbl.Text = "Target";
             this.targetLbl.Click += new System.EventHandler(this.targetPanel_Click);
             this.targetLbl.MouseEnter += new System.EventHandler(this.targetPanel_MouseEnter);
@@ -359,8 +380,9 @@
             this.titleLbl.Font = new System.Drawing.Font("Fredoka One", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLbl.Location = new System.Drawing.Point(50, 11);
             this.titleLbl.Name = "titleLbl";
-            this.titleLbl.Size = new System.Drawing.Size(126, 23);
+            this.titleLbl.Size = new System.Drawing.Size(117, 22);
             this.titleLbl.TabIndex = 3;
+            this.titleLbl.Tag = "14.25";
             this.titleLbl.Text = "ShinyCount+";
             this.titleLbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Main_MouseDown);
             this.titleLbl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Main_MouseMove);
@@ -371,14 +393,15 @@
             this.countLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.countLbl.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.countLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.countLbl.Font = new System.Drawing.Font("Fredoka One", 71.99999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.countLbl.Font = new System.Drawing.Font("Fredoka One", 72F, System.Drawing.FontStyle.Bold);
             this.countLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.countLbl.Location = new System.Drawing.Point(78, 260);
+            this.countLbl.Location = new System.Drawing.Point(78, 245);
             this.countLbl.Name = "countLbl";
-            this.countLbl.Size = new System.Drawing.Size(301, 118);
+            this.countLbl.Size = new System.Drawing.Size(301, 133);
             this.countLbl.TabIndex = 6;
+            this.countLbl.Tag = "72b";
             this.countLbl.Text = "1200";
-            this.countLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.countLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.countLbl.Click += new System.EventHandler(this.countLbl_Click);
             // 
             // incrementBtn
@@ -475,6 +498,7 @@
             this.methodDisplayBtn.Size = new System.Drawing.Size(440, 84);
             this.methodDisplayBtn.TabIndex = 11;
             this.methodDisplayBtn.TabStop = false;
+            this.methodDisplayBtn.Tag = "21.75b";
             this.methodDisplayBtn.Text = "1/621\r\nMasuda (Gen 4-5)";
             this.methodDisplayBtn.UseVisualStyleBackColor = false;
             this.methodDisplayBtn.Click += new System.EventHandler(this.methodDisplayBtn_Click);
@@ -508,6 +532,7 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Main_MouseUp);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Main_PreviewKeyDown);
             this.sidePanel.ResumeLayout(false);
+            this.sidePanel.PerformLayout();
             this.optionsSubPanel.ResumeLayout(false);
             this.incrementPanel.ResumeLayout(false);
             this.incrementPanel.PerformLayout();
@@ -564,6 +589,7 @@
         private System.Windows.Forms.Panel paypalPanel;
         private System.Windows.Forms.Panel aboutPanel;
         private System.Windows.Forms.Panel gitHubPanel;
+        private System.Windows.Forms.Label versionLbl;
     }
 }
 

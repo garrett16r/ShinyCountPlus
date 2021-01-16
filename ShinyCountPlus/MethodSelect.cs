@@ -27,8 +27,17 @@ namespace ShinyCountPlus
             InitializeComponent();
         }
 
+        private void applyFonts()
+        {
+            foreach (var c in Util.GetAllChildren(this).OfType<Button>())
+            {
+                c.Font = mainForm.fredokaOne1425;
+            }
+        }
+
         private void MethodSelectForm_Load(object sender, EventArgs e)
         {
+            applyFonts();
             accentColor = mainForm.getAccentColor();
             shinyCharm = mainForm.shinyCharm;
 

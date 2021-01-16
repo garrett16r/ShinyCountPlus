@@ -35,6 +35,7 @@ namespace ShinyCountPlus
 
         private void TargetSelect_Load(object sender, EventArgs e)
         {
+            targetLbl.Font = mainForm.fredokaOne1425;
             targetLbl.ForeColor = mainForm.getAccentColor();
             pkmnGridView.RowCount = (numPkmn / 10) + 1;
             pkmnGridView.DefaultCellStyle.SelectionBackColor = mainForm.getAccentColor();
@@ -169,6 +170,8 @@ namespace ShinyCountPlus
         #region Tools
         private void exitIcon_Click(object sender, EventArgs e)
         {
+            this.Dispose();
+            genSelectForm.Close();
             this.Close();
         }
 

@@ -39,7 +39,7 @@ namespace ShinyCountPlus
 
         private void salmonBtn_Click(object sender, EventArgs e)
         {
-            Color c = Color.FromArgb(224, 92, 107);
+            Color c = Color.FromArgb(224, 74, 92);
             mainForm.setAccentColor(c);
             updateColors(c);
         }
@@ -53,7 +53,7 @@ namespace ShinyCountPlus
 
         private void pinkBtn_Click(object sender, EventArgs e)
         {
-            Color c = Color.FromArgb(224, 51, 192);
+            Color c = Color.FromArgb(222, 100, 199);
             mainForm.setAccentColor(c);
             updateColors(c);
         }
