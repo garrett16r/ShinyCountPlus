@@ -35,6 +35,8 @@
             this.aboutPanel = new System.Windows.Forms.Panel();
             this.gitHubPanel = new System.Windows.Forms.Panel();
             this.optionsSubPanel = new System.Windows.Forms.Panel();
+            this.customCountPanel = new System.Windows.Forms.Panel();
+            this.customCountLbl = new System.Windows.Forms.Label();
             this.incrementPanel = new System.Windows.Forms.Panel();
             this.incrementUpDown = new System.Windows.Forms.NumericUpDown();
             this.incrementLbl = new System.Windows.Forms.Label();
@@ -62,8 +64,10 @@
             this.exitIcon = new System.Windows.Forms.Panel();
             this.targetDisplayBtn = new System.Windows.Forms.Button();
             this.methodDisplayBtn = new System.Windows.Forms.Button();
+            this.customCountTxtb = new System.Windows.Forms.TextBox();
             this.sidePanel.SuspendLayout();
             this.optionsSubPanel.SuspendLayout();
+            this.customCountPanel.SuspendLayout();
             this.incrementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incrementUpDown)).BeginInit();
             this.accentPanel.SuspendLayout();
@@ -89,7 +93,7 @@
             this.sidePanel.Controls.Add(this.methodPanel);
             this.sidePanel.Controls.Add(this.targetPanel);
             this.sidePanel.Controls.Add(this.padPanel);
-            this.sidePanel.Location = new System.Drawing.Point(283, 0);
+            this.sidePanel.Location = new System.Drawing.Point(220, 0);
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(253, 648);
             this.sidePanel.TabIndex = 0;
@@ -97,11 +101,11 @@
             // versionLbl
             // 
             this.versionLbl.AutoSize = true;
-            this.versionLbl.Font = new System.Drawing.Font("Fredoka One", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.versionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.versionLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.versionLbl.Location = new System.Drawing.Point(21, 578);
             this.versionLbl.Name = "versionLbl";
-            this.versionLbl.Size = new System.Drawing.Size(46, 19);
+            this.versionLbl.Size = new System.Drawing.Size(45, 18);
             this.versionLbl.TabIndex = 0;
             this.versionLbl.Tag = "11.25";
             this.versionLbl.Text = "v1.x.x";
@@ -144,13 +148,42 @@
             // optionsSubPanel
             // 
             this.optionsSubPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(255)))));
+            this.optionsSubPanel.Controls.Add(this.customCountPanel);
             this.optionsSubPanel.Controls.Add(this.incrementPanel);
             this.optionsSubPanel.Controls.Add(this.accentPanel);
             this.optionsSubPanel.Controls.Add(this.opacityPanel);
             this.optionsSubPanel.Location = new System.Drawing.Point(0, 242);
             this.optionsSubPanel.Name = "optionsSubPanel";
-            this.optionsSubPanel.Size = new System.Drawing.Size(253, 204);
+            this.optionsSubPanel.Size = new System.Drawing.Size(253, 273);
             this.optionsSubPanel.TabIndex = 3;
+            // 
+            // customCountPanel
+            // 
+            this.customCountPanel.Controls.Add(this.customCountTxtb);
+            this.customCountPanel.Controls.Add(this.customCountLbl);
+            this.customCountPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.customCountPanel.Location = new System.Drawing.Point(0, 204);
+            this.customCountPanel.Name = "customCountPanel";
+            this.customCountPanel.Size = new System.Drawing.Size(253, 68);
+            this.customCountPanel.TabIndex = 3;
+            this.customCountPanel.Click += new System.EventHandler(this.customCountPanel_Click);
+            this.customCountPanel.MouseEnter += new System.EventHandler(this.customCountPanel_MouseEnter);
+            this.customCountPanel.MouseLeave += new System.EventHandler(this.customCountPanel_MouseLeave);
+            // 
+            // customCountLbl
+            // 
+            this.customCountLbl.AutoSize = true;
+            this.customCountLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customCountLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.customCountLbl.Location = new System.Drawing.Point(21, 22);
+            this.customCountLbl.Name = "customCountLbl";
+            this.customCountLbl.Size = new System.Drawing.Size(121, 25);
+            this.customCountLbl.TabIndex = 2;
+            this.customCountLbl.Tag = "15.75";
+            this.customCountLbl.Text = "Encounters";
+            this.customCountLbl.Click += new System.EventHandler(this.customCountPanel_Click);
+            this.customCountLbl.MouseEnter += new System.EventHandler(this.customCountPanel_MouseEnter);
+            this.customCountLbl.MouseLeave += new System.EventHandler(this.customCountPanel_MouseLeave);
             // 
             // incrementPanel
             // 
@@ -167,9 +200,9 @@
             // 
             // incrementUpDown
             // 
+            this.incrementUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.incrementUpDown.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.incrementUpDown.Font = new System.Drawing.Font("Fredoka One", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incrementUpDown.InterceptArrowKeys = false;
+            this.incrementUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incrementUpDown.Location = new System.Drawing.Point(161, 17);
             this.incrementUpDown.Minimum = new decimal(new int[] {
             1,
@@ -177,7 +210,7 @@
             0,
             0});
             this.incrementUpDown.Name = "incrementUpDown";
-            this.incrementUpDown.Size = new System.Drawing.Size(58, 33);
+            this.incrementUpDown.Size = new System.Drawing.Size(58, 31);
             this.incrementUpDown.TabIndex = 3;
             this.incrementUpDown.TabStop = false;
             this.incrementUpDown.Tag = "18";
@@ -193,11 +226,11 @@
             // incrementLbl
             // 
             this.incrementLbl.AutoSize = true;
-            this.incrementLbl.Font = new System.Drawing.Font("Fredoka One", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incrementLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.incrementLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.incrementLbl.Location = new System.Drawing.Point(21, 22);
             this.incrementLbl.Name = "incrementLbl";
-            this.incrementLbl.Size = new System.Drawing.Size(102, 24);
+            this.incrementLbl.Size = new System.Drawing.Size(106, 25);
             this.incrementLbl.TabIndex = 2;
             this.incrementLbl.Tag = "15.75";
             this.incrementLbl.Text = "Increment";
@@ -220,11 +253,11 @@
             // accentLbl
             // 
             this.accentLbl.AutoSize = true;
-            this.accentLbl.Font = new System.Drawing.Font("Fredoka One", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accentLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accentLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.accentLbl.Location = new System.Drawing.Point(21, 22);
             this.accentLbl.Name = "accentLbl";
-            this.accentLbl.Size = new System.Drawing.Size(130, 24);
+            this.accentLbl.Size = new System.Drawing.Size(135, 25);
             this.accentLbl.TabIndex = 2;
             this.accentLbl.Tag = "15.75";
             this.accentLbl.Text = "Accent Color";
@@ -247,14 +280,14 @@
             // opacityLbl
             // 
             this.opacityLbl.AutoSize = true;
-            this.opacityLbl.Font = new System.Drawing.Font("Fredoka One", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opacityLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.opacityLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.opacityLbl.Location = new System.Drawing.Point(21, 18);
             this.opacityLbl.Name = "opacityLbl";
-            this.opacityLbl.Size = new System.Drawing.Size(88, 24);
+            this.opacityLbl.Size = new System.Drawing.Size(85, 25);
             this.opacityLbl.TabIndex = 1;
             this.opacityLbl.Tag = "15.75";
-            this.opacityLbl.Text = "Opacity:";
+            this.opacityLbl.Text = "Opacity";
             this.opacityLbl.MouseEnter += new System.EventHandler(this.opacityPanel_MouseEnter);
             this.opacityLbl.MouseLeave += new System.EventHandler(this.opacityPanel_MouseLeave);
             // 
@@ -288,7 +321,7 @@
             // optionsLbl
             // 
             this.optionsLbl.AutoSize = true;
-            this.optionsLbl.Font = new System.Drawing.Font("Fredoka One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.optionsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optionsLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.optionsLbl.Location = new System.Drawing.Point(3, 15);
             this.optionsLbl.Name = "optionsLbl";
@@ -315,11 +348,11 @@
             // methodLbl
             // 
             this.methodLbl.AutoSize = true;
-            this.methodLbl.Font = new System.Drawing.Font("Fredoka One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.methodLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.methodLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.methodLbl.Location = new System.Drawing.Point(4, 15);
             this.methodLbl.Name = "methodLbl";
-            this.methodLbl.Size = new System.Drawing.Size(93, 29);
+            this.methodLbl.Size = new System.Drawing.Size(94, 29);
             this.methodLbl.TabIndex = 1;
             this.methodLbl.Tag = "18";
             this.methodLbl.Text = "Method";
@@ -342,11 +375,11 @@
             // targetLbl
             // 
             this.targetLbl.AutoSize = true;
-            this.targetLbl.Font = new System.Drawing.Font("Fredoka One", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.targetLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.targetLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.targetLbl.Location = new System.Drawing.Point(4, 15);
             this.targetLbl.Name = "targetLbl";
-            this.targetLbl.Size = new System.Drawing.Size(79, 29);
+            this.targetLbl.Size = new System.Drawing.Size(84, 29);
             this.targetLbl.TabIndex = 0;
             this.targetLbl.Tag = "18";
             this.targetLbl.Text = "Target";
@@ -377,10 +410,10 @@
             // titleLbl
             // 
             this.titleLbl.AutoSize = true;
-            this.titleLbl.Font = new System.Drawing.Font("Fredoka One", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLbl.Location = new System.Drawing.Point(50, 11);
             this.titleLbl.Name = "titleLbl";
-            this.titleLbl.Size = new System.Drawing.Size(117, 22);
+            this.titleLbl.Size = new System.Drawing.Size(118, 24);
             this.titleLbl.TabIndex = 3;
             this.titleLbl.Tag = "14.25";
             this.titleLbl.Text = "ShinyCount+";
@@ -393,7 +426,7 @@
             this.countLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.countLbl.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.countLbl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.countLbl.Font = new System.Drawing.Font("Fredoka One", 72F, System.Drawing.FontStyle.Bold);
+            this.countLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold);
             this.countLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.countLbl.Location = new System.Drawing.Point(78, 245);
             this.countLbl.Name = "countLbl";
@@ -491,7 +524,7 @@
             this.methodDisplayBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.methodDisplayBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.methodDisplayBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.methodDisplayBtn.Font = new System.Drawing.Font("Fredoka One", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.methodDisplayBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.methodDisplayBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.methodDisplayBtn.Location = new System.Drawing.Point(0, 564);
             this.methodDisplayBtn.Name = "methodDisplayBtn";
@@ -502,6 +535,21 @@
             this.methodDisplayBtn.Text = "1/621\r\nMasuda (Gen 4-5)";
             this.methodDisplayBtn.UseVisualStyleBackColor = false;
             this.methodDisplayBtn.Click += new System.EventHandler(this.methodDisplayBtn_Click);
+            // 
+            // customCountTxtb
+            // 
+            this.customCountTxtb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.customCountTxtb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.customCountTxtb.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customCountTxtb.Location = new System.Drawing.Point(161, 20);
+            this.customCountTxtb.MaxLength = 5;
+            this.customCountTxtb.Name = "customCountTxtb";
+            this.customCountTxtb.Size = new System.Drawing.Size(72, 28);
+            this.customCountTxtb.TabIndex = 3;
+            this.customCountTxtb.TabStop = false;
+            this.customCountTxtb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.customCountTxtb.Visible = false;
+            this.customCountTxtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.customCountTxtb_KeyPress);
             // 
             // Main
             // 
@@ -520,7 +568,7 @@
             this.Controls.Add(this.titleLbl);
             this.Controls.Add(this.countLbl);
             this.Controls.Add(this.incrementBtn);
-            this.Font = new System.Drawing.Font("Fredoka One", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
@@ -534,6 +582,8 @@
             this.sidePanel.ResumeLayout(false);
             this.sidePanel.PerformLayout();
             this.optionsSubPanel.ResumeLayout(false);
+            this.customCountPanel.ResumeLayout(false);
+            this.customCountPanel.PerformLayout();
             this.incrementPanel.ResumeLayout(false);
             this.incrementPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incrementUpDown)).EndInit();
@@ -590,6 +640,9 @@
         private System.Windows.Forms.Panel aboutPanel;
         private System.Windows.Forms.Panel gitHubPanel;
         private System.Windows.Forms.Label versionLbl;
+        public System.Windows.Forms.Panel customCountPanel;
+        private System.Windows.Forms.Label customCountLbl;
+        private System.Windows.Forms.TextBox customCountTxtb;
     }
 }
 

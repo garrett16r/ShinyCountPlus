@@ -17,12 +17,13 @@ Attempt number three at a shiny hunting counter for the Pokemon games. Better UI
 - Select current hunting method
 - Display hunting method and current odds on main screen
 - Set custom interval for counter (great for multi-system hunting)
+- Enter custom encounter value for picking up previous hunts
 - Set window opacity (great for multitasking)
 - Choose from four accent color options (more to come)
 
 ## Todo
 - Mark target as caught, view caught targets in nice grid view (maybe)
-- Enter custom encounter value for picking up previous hunts
+- Dark mode
 - Discord Rish Presence?
 
 ## Installation

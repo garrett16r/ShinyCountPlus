@@ -284,6 +284,7 @@ namespace ShinyCountPlus
             }
             countLbl.ForeColor = c;
             incrementUpDown.ForeColor = c;
+            customCountTxtb.ForeColor = c;
             methodDisplayBtn.FlatAppearance.MouseOverBackColor = c;
             methodDisplayBtn.FlatAppearance.MouseDownBackColor = c;
         }
@@ -430,8 +431,19 @@ namespace ShinyCountPlus
                 animateSidePanel();
                 menuOut = false;
                 incrementBtn.Focus();
+
+                // Update count label if user entered a custom value in the encounters field
+                if (customCountTxtb.Text.Length > 0)
+                {
+                    count = int.Parse(customCountTxtb.Text);
+                    customCountTxtb.Text = "";
+                    countLbl.Text = count.ToString();
+                    save();
+                }
+
                 await Task.Delay(125);
                 incrementUpDown.Visible = false;
+                customCountTxtb.Visible = false;
                 menuIcon.BackgroundImage = Resources.menu_icon_close;
                 await Task.Delay(200);
                 sidePanel.Visible = false;
@@ -590,6 +602,7 @@ namespace ShinyCountPlus
         {
             if (!incrementUpDown.Visible)
             {
+                customCountTxtb.Visible = false;
                 incrementUpDown.Visible = true;
             } else
             {
@@ -611,6 +624,38 @@ namespace ShinyCountPlus
         private void incrementPanel_MouseLeave(object sender, EventArgs e)
         {
             unhighlightPanelOnLeave(incrementPanel, true);
+        }
+
+        private void customCountPanel_Click(object sender, EventArgs e)
+        {
+            if (!customCountTxtb.Visible)
+            {
+                customCountTxtb.Visible = true;
+                incrementUpDown.Visible = false;
+                customCountTxtb.Focus();
+            } else
+            {
+                customCountTxtb.Visible = false;
+            }
+            
+        }
+
+        private void customCountTxtb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void customCountPanel_MouseEnter(object sender, EventArgs e)
+        {
+            highlightPanelOnEnter(customCountPanel, true);
+        }
+
+        private void customCountPanel_MouseLeave(object sender, EventArgs e)
+        {
+            unhighlightPanelOnLeave(customCountPanel, true);
         }
         #endregion
 
