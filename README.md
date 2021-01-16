@@ -7,7 +7,7 @@ Attempt number three at a shiny hunting counter for the Pokemon games. Better UI
   <summary>Screenshots</summary>
   
   ![Main screen](https://i.imgur.com/5Oeibhx.png)
-  ![Side bar with opacity](https://i.imgur.com/N3AVpDL.png)
+  ![Side bar with opacity](https://i.imgur.com/pnL4LcG.png)
   ![Target select](https://i.imgur.com/cjDZqrZ.png)
   ![Method select](https://i.imgur.com/lB1fu9e.png)
 </details>
