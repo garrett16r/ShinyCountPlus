@@ -1,4 +1,4 @@
-# ShinyCountPlus v1.2.0
+# ShinyCount+ v1.2.0
 ## FIRST FULL RELEASE
 ![Banner](https://i.imgur.com/bS5V0n2.png)
 Attempt number three at a shiny hunting counter for the Pokemon games. Better UI, better optimization, better features.
