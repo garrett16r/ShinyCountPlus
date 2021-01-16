@@ -1,4 +1,4 @@
-# ShinyCountPlus v1.0.3
+# ShinyCountPlus v1.1.3
 ## FIRST FULL RELEASE
 ![Banner](https://i.imgur.com/bS5V0n2.png)
 Attempt number three at a shiny hunting counter for the Pokemon games. Better UI, better optimization, better features.
@@ -21,15 +21,13 @@ Attempt number three at a shiny hunting counter for the Pokemon games. Better UI
 - Choose from four accent color options (more to come)
 
 ## Todo
-- Auto check for updates
 - Mark target as caught, view caught targets in nice grid view (maybe)
 - Enter custom encounter value for picking up previous hunts
-- See if there's a way to auto-install needed font
 - Discord Rish Presence?
 
 ## Installation
+- Must be running Windows 7 or later with .NET 4.8
 - Go to the releases page, where the newest version will be at the top
-- Select the zip file to download
-- Extract the zip file's contents to a new folder anywhere on your PC
-- Open FredokaOne-Regular.ttf and click install in the top left corner (This font is needed for the program to display everything correctly)
-- Run the .exe and everything will be ready to go
+- Download setup.exe, ignore other files
+- Run setup.exe to install the program, and it will launch automatically
+- Windows Defender/Chrome may give a false positive, likely due to the program lacking a certificate (don't have the money for that) and trying to install to your system.
