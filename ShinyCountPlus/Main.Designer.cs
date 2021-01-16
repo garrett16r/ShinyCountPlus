@@ -36,6 +36,7 @@
             this.gitHubPanel = new System.Windows.Forms.Panel();
             this.optionsSubPanel = new System.Windows.Forms.Panel();
             this.customCountPanel = new System.Windows.Forms.Panel();
+            this.customCountTxtb = new System.Windows.Forms.TextBox();
             this.customCountLbl = new System.Windows.Forms.Label();
             this.incrementPanel = new System.Windows.Forms.Panel();
             this.incrementUpDown = new System.Windows.Forms.NumericUpDown();
@@ -64,7 +65,6 @@
             this.exitIcon = new System.Windows.Forms.Panel();
             this.targetDisplayBtn = new System.Windows.Forms.Button();
             this.methodDisplayBtn = new System.Windows.Forms.Button();
-            this.customCountTxtb = new System.Windows.Forms.TextBox();
             this.sidePanel.SuspendLayout();
             this.optionsSubPanel.SuspendLayout();
             this.customCountPanel.SuspendLayout();
@@ -169,6 +169,21 @@
             this.customCountPanel.Click += new System.EventHandler(this.customCountPanel_Click);
             this.customCountPanel.MouseEnter += new System.EventHandler(this.customCountPanel_MouseEnter);
             this.customCountPanel.MouseLeave += new System.EventHandler(this.customCountPanel_MouseLeave);
+            // 
+            // customCountTxtb
+            // 
+            this.customCountTxtb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.customCountTxtb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.customCountTxtb.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customCountTxtb.Location = new System.Drawing.Point(161, 20);
+            this.customCountTxtb.MaxLength = 5;
+            this.customCountTxtb.Name = "customCountTxtb";
+            this.customCountTxtb.Size = new System.Drawing.Size(72, 28);
+            this.customCountTxtb.TabIndex = 3;
+            this.customCountTxtb.TabStop = false;
+            this.customCountTxtb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.customCountTxtb.Visible = false;
+            this.customCountTxtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.customCountTxtb_KeyPress);
             // 
             // customCountLbl
             // 
@@ -535,21 +550,6 @@
             this.methodDisplayBtn.Text = "1/621\r\nMasuda (Gen 4-5)";
             this.methodDisplayBtn.UseVisualStyleBackColor = false;
             this.methodDisplayBtn.Click += new System.EventHandler(this.methodDisplayBtn_Click);
-            // 
-            // customCountTxtb
-            // 
-            this.customCountTxtb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.customCountTxtb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.customCountTxtb.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customCountTxtb.Location = new System.Drawing.Point(161, 20);
-            this.customCountTxtb.MaxLength = 5;
-            this.customCountTxtb.Name = "customCountTxtb";
-            this.customCountTxtb.Size = new System.Drawing.Size(72, 28);
-            this.customCountTxtb.TabIndex = 3;
-            this.customCountTxtb.TabStop = false;
-            this.customCountTxtb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.customCountTxtb.Visible = false;
-            this.customCountTxtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.customCountTxtb_KeyPress);
             // 
             // Main
             // 

@@ -264,7 +264,8 @@ namespace ShinyCountPlus
         // Set accent color
         public void setAccentColor(Color c)
         {
-            Control[] normalAccentControls = { 
+            Control[] normalAccentControls = 
+            { 
                 sidePanel, sidebarBgPanel, optionsPanel, targetPanel, methodPanel, 
                 iconColorPanel, underlinePanel, iconColorPanel, gitHubPanel, paypalPanel, 
                 aboutPanel, methodDisplayBtn

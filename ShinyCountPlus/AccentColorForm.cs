@@ -34,6 +34,7 @@ namespace ShinyCountPlus
         private void purpleBtn_Click(object sender, EventArgs e)
         {
             Color c = Color.FromArgb(128, 128, 255);
+            mainForm.setAccentColor(c);
             updateColors(c);
         }
 
