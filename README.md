@@ -31,3 +31,8 @@ Attempt number three at a shiny hunting counter for the Pokemon games. Better UI
 - Download setup.exe, ignore other files
 - Run setup.exe to install the program, and it will launch automatically
 - Windows Defender/Chrome may give a false positive, likely due to the program lacking a certificate (don't have the money for that) and trying to install to your system.
+
+## Sources
+- Installation and auto updates: [squirrel.windows](https://github.com/Squirrel/Squirrel.Windows)
+- Poke Radar and chain fish odds: [Pokemon Forever](http://pokemonforever.com/pokeradar.php)
+- Dex Nav odds: [mrnbayoh's Pokemon 6th gen shiny calculator](https://mrnbayoh.github.io/pkmn6gen/shiny_calculator/)
