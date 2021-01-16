@@ -28,9 +28,18 @@ namespace ShinyCountPlus
 
         private void TargetForm_Load(object sender, EventArgs e)
         {
+            applyFonts();
             this.Focus();
             accentColor = mainForm.getAccentColor();
             setAccentColor();
+        }
+
+        private void applyFonts()
+        {
+            foreach (var c in Util.GetAllChildren(this).OfType<Button>())
+            {
+                c.Font = mainForm.fredokaOne1425;
+            }
         }
 
         private void setAccentColor()

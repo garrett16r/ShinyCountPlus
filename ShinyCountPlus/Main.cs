@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -20,9 +21,25 @@ namespace ShinyCountPlus
 {
     public partial class Main : Form
     {
+        // Framework for loading embedded FredokaOne font
+        #region Font framework/variables
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
+
+        private PrivateFontCollection fonts = new PrivateFontCollection();
+
+        Font fredokaOne72b;
+        Font fredokaOne18;
+        Font fredokaOne1575;
+        Font fredokaOne2175b;
+        public Font fredokaOne1425;
+        Font fredokaOne1125;
+        #endregion
+
         public string FILES_DIR = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShinyCountPlus\\");
         public string IMG_DIR = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShinyCountPlus\\img\\");
         public string SAVE_FILE = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ShinyCountPlus\\data.sav");
+        public PrivateFontCollection pfc = new PrivateFontCollection();
 
         bool dragging = false;
         Point startPoint = new Point(0, 0);
@@ -41,13 +58,19 @@ namespace ShinyCountPlus
         public Main()
         {
             InitializeComponent();
+            loadFonts();
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        private async void Main_Load(object sender, EventArgs e)
         {
             createDirectories();
             setTargetDisplay();
             setMethodDisplay();
+
+            // Prevents accidental drift of countLbl due to the ticking animation
+            var timer = new System.Threading.Timer(t => correctCountPos(), null, TimeSpan.Zero, TimeSpan.FromSeconds(10));
+
+            versionLbl.Text = $"v{ FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion }";
             sidePanel.Location = new Point(-253, 0);
             optionsSubPanel.Visible = false;
             countLbl.Text = count.ToString();
@@ -98,6 +121,56 @@ namespace ShinyCountPlus
                     setAccentColor(Color.FromArgb(r, g, b));
                 }
                 catch (Exception e) { Console.WriteLine(e); }
+            }
+        }
+
+        private void loadFonts()
+        {
+            byte[] fontData = Resources.FredokaOne_Regular;
+            IntPtr fontPtr = Marshal.AllocCoTaskMem(fontData.Length);
+            Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            uint dummy = 0;
+            fonts.AddMemoryFont(fontPtr, Resources.FredokaOne_Regular.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Resources.FredokaOne_Regular.Length, IntPtr.Zero, ref dummy);
+            Marshal.FreeCoTaskMem(fontPtr);
+
+            fredokaOne72b = new Font(fonts.Families[0], 72, FontStyle.Bold);
+            fredokaOne18 = new Font(fonts.Families[0], 18);
+            fredokaOne1575 = new Font(fonts.Families[0], 15.75f);
+            fredokaOne2175b = new Font(fonts.Families[0], 21.75f, FontStyle.Bold);
+            fredokaOne1425 = new Font(fonts.Families[0], 14.25f);
+            fredokaOne1125 = new Font(fonts.Families[0], 11.25f);
+
+            // Apply fonts to all needed controls
+            foreach (var c in Util.GetAllChildren(this))
+            {
+                if (c.Font.Size == 72)
+                {
+                    c.Font = fredokaOne72b;
+                } else if (c.Font.Size == 18)
+                {
+                    c.Font = fredokaOne18;
+                } else if (c.Font.Size == 15.75)
+                {
+                    c.Font = fredokaOne1575;
+                } else if (c.Font.Size == 21.75)
+                {
+                    c.Font = fredokaOne2175b;
+                } else if (c.Font.Size == 14.25)
+                {
+                    c.Font = fredokaOne1425;
+                } else if (c.Font.Size == 11.25)
+                {
+                    c.Font = fredokaOne1125;
+                }
+            }
+        }
+
+        private void correctCountPos()
+        {
+            if (!menuOut && countLbl.Location != new Point(78, 245))
+            {
+                countLbl.Location = new Point(78, 245); 
             }
         }
 
@@ -278,9 +351,9 @@ namespace ShinyCountPlus
         {
             Point countPosition = countLbl.Location;
 
-            int yDelta = 2;
+            int yDelta = 4;
 
-            if (upDown == 0) yDelta = -2;
+            if (upDown == 0) yDelta = -4;
 
             countLbl.Location = new Point(countPosition.X, countPosition.Y - yDelta);
             await Task.Delay(50);
@@ -612,6 +685,10 @@ namespace ShinyCountPlus
 
         private void exitIcon_Click(object sender, EventArgs e)
         {
+            // Have the window disappear while cleanup runs for a couple seconds in the background
+            this.Visible = false;
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
             save();
             Application.Exit();
         }

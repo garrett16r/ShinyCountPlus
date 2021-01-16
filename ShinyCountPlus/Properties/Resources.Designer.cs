@@ -81,6 +81,16 @@ namespace ShinyCountPlus.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] FredokaOne_Regular {
+            get {
+                object obj = ResourceManager.GetObject("FredokaOne_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bulbasaur
         ///Ivysaur
         ///Venusaur
@@ -631,16 +641,6 @@ namespace ShinyCountPlus.Properties {
         internal static System.Drawing.Bitmap pinkAccent {
             get {
                 object obj = ResourceManager.GetObject("pinkAccent", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap PogChamp {
-            get {
-                object obj = ResourceManager.GetObject("PogChamp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

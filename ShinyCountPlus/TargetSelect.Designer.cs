@@ -78,6 +78,7 @@
             this.Col8,
             this.Col9,
             this.Col10});
+            this.pkmnGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.pkmnGridView.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pkmnGridView.Location = new System.Drawing.Point(0, 32);
             this.pkmnGridView.MultiSelect = false;
@@ -204,7 +205,7 @@
             // 
             // TargetSelectForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 563);
             this.ControlBox = false;
