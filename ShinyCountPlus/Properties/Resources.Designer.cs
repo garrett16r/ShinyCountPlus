@@ -137,7 +137,14 @@ namespace ShinyCountPlus.Properties {
         ///Ninetales
         ///Ninetales-Alolan
         ///Jigglypuff
-        ///Wigglytuff [rest of string was truncated]&quot;;.
+        ///Wigglytuff
+        ///Zubat
+        ///Golbat
+        ///Oddish
+        ///Gloom
+        ///Vileplume
+        ///Paras
+        ///Par [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string gen1 {
             get {
@@ -201,7 +208,13 @@ namespace ShinyCountPlus.Properties {
         ///Pineco
         ///Forretress
         ///Dunsparce
-        /// [rest of string was truncated]&quot;;.
+        ///Gligar
+        ///Steelix
+        ///Snubbull
+        ///Granbull
+        ///Qwilfish
+        ///Scizor
+        ///Shuckl [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string gen2 {
             get {
@@ -262,7 +275,14 @@ namespace ShinyCountPlus.Properties {
         ///Nosepass
         ///Skitty
         ///Delcatty
-        ///Sabl [rest of string was truncated]&quot;;.
+        ///Sableye
+        ///Mawile
+        ///Aron
+        ///Lairon
+        ///Aggron
+        ///Meditite
+        ///Medicham
+        ///Elec [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string gen3 {
             get {
@@ -325,7 +345,14 @@ namespace ShinyCountPlus.Properties {
         ///Bonsly
         ///Mime-Jr
         ///Happiny
-        ///Chat [rest of string was truncated]&quot;;.
+        ///Chatot
+        ///Spiritomb
+        ///Gible
+        ///Gabite
+        ///Garchomp
+        ///Munchlax
+        ///Riolu
+        ///Luca [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string gen4 {
             get {
@@ -387,7 +414,13 @@ namespace ShinyCountPlus.Properties {
         ///Whirlipede
         ///Scolipede
         ///Cottonee
-        ///Whimsicott        /// [rest of string was truncated]&quot;;.
+        ///Whimsicott
+        ///Petilil
+        ///Lilligant
+        ///Basculin
+        ///Sandile
+        ///Krokorok
+        ///Krookodil [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string gen5 {
             get {
@@ -448,7 +481,14 @@ namespace ShinyCountPlus.Properties {
         ///Aurorus
         ///Sylveon
         ///Hawlucha
-        ///Dede [rest of string was truncated]&quot;;.
+        ///Dedenne
+        ///Carbink
+        ///Goomy
+        ///Sliggoo
+        ///Goodra
+        ///Klefki
+        ///Phantump
+        ///Tre [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string gen6 {
             get {
@@ -507,7 +547,13 @@ namespace ShinyCountPlus.Properties {
         ///Sandygast
         ///Palossand
         ///Pyukumuku
-        ///Type-Null        /// [rest of string was truncated]&quot;;.
+        ///Type-Null
+        ///Silvally
+        ///Minior
+        ///Komala
+        ///Turtonator
+        ///Togedemaru
+        ///Mimik [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string gen7 {
             get {
@@ -567,7 +613,12 @@ namespace ShinyCountPlus.Properties {
         ///Hatterene
         ///Impidimp
         ///Morgrem
-        /// [rest of string was truncated]&quot;;.
+        ///Grimmsnarl
+        ///Obstagoon
+        ///Perrserker
+        ///Cursola
+        ///Sirfetchd
+        ///M [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string gen8 {
             get {

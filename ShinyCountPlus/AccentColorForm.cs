@@ -21,6 +21,7 @@ namespace ShinyCountPlus
         {
             InitializeComponent();
             this.mainForm = mainForm as Main;
+            if (mainForm.TopMost) this.TopMost = true;
         }
 
         private void updateColors(Color c)
@@ -34,7 +35,6 @@ namespace ShinyCountPlus
         private void purpleBtn_Click(object sender, EventArgs e)
         {
             Color c = Color.FromArgb(128, 128, 255);
-            mainForm.setAccentColor(c);
             updateColors(c);
         }
 

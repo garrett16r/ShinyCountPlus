@@ -264,8 +264,7 @@ namespace ShinyCountPlus
         // Set accent color
         public void setAccentColor(Color c)
         {
-            Control[] normalAccentControls = 
-            { 
+            Control[] normalAccentControls = { 
                 sidePanel, sidebarBgPanel, optionsPanel, targetPanel, methodPanel, 
                 iconColorPanel, underlinePanel, iconColorPanel, gitHubPanel, paypalPanel, 
                 aboutPanel, methodDisplayBtn
@@ -425,6 +424,7 @@ namespace ShinyCountPlus
                 menuIcon.BackgroundImage = Resources.menu_icon_open;
                 sidePanel.Visible = true;
                 animateSidePanel();
+                pinPanel.Visible = false;
                 menuOut = true;
             }
             else
@@ -443,6 +443,7 @@ namespace ShinyCountPlus
                 }
 
                 await Task.Delay(125);
+                pinPanel.Visible = true;
                 incrementUpDown.Visible = false;
                 customCountTxtb.Visible = false;
                 menuIcon.BackgroundImage = Resources.menu_icon_close;
@@ -729,6 +730,19 @@ namespace ShinyCountPlus
             dragging = false;
         }
 
+        private void pinPanel_Click(object sender, EventArgs e)
+        {
+            if (!this.TopMost)
+            {
+                this.TopMost = true;
+                pinPanel.BackgroundImage = Resources.pin_on;
+            } else
+            {
+                this.TopMost = false;
+                pinPanel.BackgroundImage = Resources.pin_off;
+            }
+        }
+
         private void exitIcon_Click(object sender, EventArgs e)
         {
             // Have the window disappear while cleanup runs for a couple seconds in the background
@@ -737,19 +751,6 @@ namespace ShinyCountPlus
             GC.WaitForPendingFinalizers();
             save();
             Application.Exit();
-        }
-
-        private void pinIcon_Click(object sender, EventArgs e)
-        {
-            if (!this.TopMost)
-            {
-                this.TopMost = true;
-                pinIcon.BackgroundImage = Resources.pin_on;
-            } else
-            {
-                this.TopMost = false;
-                pinIcon.BackgroundImage = Resources.pin_off;
-            }
         }
         #endregion
     }

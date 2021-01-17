@@ -54,17 +54,16 @@
             this.targetLbl = new System.Windows.Forms.Label();
             this.padPanel = new System.Windows.Forms.Panel();
             this.sidebarBgPanel = new System.Windows.Forms.Panel();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.titleLbl = new System.Windows.Forms.Label();
             this.countLbl = new System.Windows.Forms.Label();
             this.incrementBtn = new System.Windows.Forms.Button();
-            this.pinIcon = new System.Windows.Forms.Panel();
             this.menuIcon = new System.Windows.Forms.Panel();
             this.iconColorPanel = new System.Windows.Forms.Panel();
             this.underlinePanel = new System.Windows.Forms.Panel();
             this.exitIcon = new System.Windows.Forms.Panel();
             this.targetDisplayBtn = new System.Windows.Forms.Button();
             this.methodDisplayBtn = new System.Windows.Forms.Button();
+            this.pinPanel = new System.Windows.Forms.Panel();
             this.sidePanel.SuspendLayout();
             this.optionsSubPanel.SuspendLayout();
             this.customCountPanel.SuspendLayout();
@@ -93,7 +92,7 @@
             this.sidePanel.Controls.Add(this.methodPanel);
             this.sidePanel.Controls.Add(this.targetPanel);
             this.sidePanel.Controls.Add(this.padPanel);
-            this.sidePanel.Location = new System.Drawing.Point(422, 0);
+            this.sidePanel.Location = new System.Drawing.Point(401, 0);
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(253, 648);
             this.sidePanel.TabIndex = 0;
@@ -469,17 +468,6 @@
             this.incrementBtn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.incrementBtn_KeyDown);
             this.incrementBtn.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.incrementBtn_PreviewKeyDown);
             // 
-            // pinIcon
-            // 
-            this.pinIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pinIcon.BackgroundImage = global::ShinyCountPlus.Properties.Resources.pin_off;
-            this.pinIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pinIcon.Location = new System.Drawing.Point(360, 8);
-            this.pinIcon.Name = "pinIcon";
-            this.pinIcon.Size = new System.Drawing.Size(32, 32);
-            this.pinIcon.TabIndex = 5;
-            this.pinIcon.Click += new System.EventHandler(this.pinIcon_Click);
-            // 
             // menuIcon
             // 
             this.menuIcon.BackgroundImage = global::ShinyCountPlus.Properties.Resources.menu_icon_close;
@@ -551,6 +539,17 @@
             this.methodDisplayBtn.UseVisualStyleBackColor = false;
             this.methodDisplayBtn.Click += new System.EventHandler(this.methodDisplayBtn_Click);
             // 
+            // pinPanel
+            // 
+            this.pinPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pinPanel.BackgroundImage = global::ShinyCountPlus.Properties.Resources.pin_off;
+            this.pinPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pinPanel.Location = new System.Drawing.Point(358, 8);
+            this.pinPanel.Name = "pinPanel";
+            this.pinPanel.Size = new System.Drawing.Size(32, 32);
+            this.pinPanel.TabIndex = 12;
+            this.pinPanel.Click += new System.EventHandler(this.pinPanel_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -558,12 +557,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(438, 648);
             this.ControlBox = false;
-            this.Controls.Add(this.sidePanel);
+            this.Controls.Add(this.pinPanel);
             this.Controls.Add(this.methodDisplayBtn);
             this.Controls.Add(this.iconColorPanel);
+            this.Controls.Add(this.sidePanel);
             this.Controls.Add(this.targetDisplayBtn);
             this.Controls.Add(this.underlinePanel);
-            this.Controls.Add(this.pinIcon);
             this.Controls.Add(this.exitIcon);
             this.Controls.Add(this.titleLbl);
             this.Controls.Add(this.countLbl);
@@ -609,10 +608,8 @@
 
         private System.Windows.Forms.Panel sidePanel;
         private System.Windows.Forms.Panel menuIcon;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label titleLbl;
         private System.Windows.Forms.Panel exitIcon;
-        private System.Windows.Forms.Panel pinIcon;
         private System.Windows.Forms.Label countLbl;
         private System.Windows.Forms.Button incrementBtn;
         private System.Windows.Forms.Panel padPanel;
@@ -643,6 +640,7 @@
         public System.Windows.Forms.Panel customCountPanel;
         private System.Windows.Forms.Label customCountLbl;
         private System.Windows.Forms.TextBox customCountTxtb;
+        private System.Windows.Forms.Panel pinPanel;
     }
 }
 

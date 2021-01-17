@@ -24,6 +24,7 @@ namespace ShinyCountPlus
         public MethodSelectForm(Form mainForm)
         {
             this.mainForm = mainForm as Main;
+            if (mainForm.TopMost) this.TopMost = true;
             InitializeComponent();
         }
 

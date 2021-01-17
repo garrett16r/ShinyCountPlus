@@ -31,6 +31,7 @@ namespace ShinyCountPlus
             this.mainForm = mainForm as Main;
             this.numPkmn = numPkmn;
             this.gen = gen;
+            if (mainForm.TopMost) this.TopMost = true;
         }
 
         private void TargetSelect_Load(object sender, EventArgs e)
