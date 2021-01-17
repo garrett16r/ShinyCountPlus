@@ -58,7 +58,7 @@
             this.titleLbl = new System.Windows.Forms.Label();
             this.countLbl = new System.Windows.Forms.Label();
             this.incrementBtn = new System.Windows.Forms.Button();
-            this.minIcon = new System.Windows.Forms.Panel();
+            this.pinIcon = new System.Windows.Forms.Panel();
             this.menuIcon = new System.Windows.Forms.Panel();
             this.iconColorPanel = new System.Windows.Forms.Panel();
             this.underlinePanel = new System.Windows.Forms.Panel();
@@ -93,7 +93,7 @@
             this.sidePanel.Controls.Add(this.methodPanel);
             this.sidePanel.Controls.Add(this.targetPanel);
             this.sidePanel.Controls.Add(this.padPanel);
-            this.sidePanel.Location = new System.Drawing.Point(220, 0);
+            this.sidePanel.Location = new System.Drawing.Point(422, 0);
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(253, 648);
             this.sidePanel.TabIndex = 0;
@@ -469,16 +469,16 @@
             this.incrementBtn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.incrementBtn_KeyDown);
             this.incrementBtn.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.incrementBtn_PreviewKeyDown);
             // 
-            // minIcon
+            // pinIcon
             // 
-            this.minIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minIcon.BackgroundImage = global::ShinyCountPlus.Properties.Resources.icons8_subtract_32px;
-            this.minIcon.Location = new System.Drawing.Point(363, 8);
-            this.minIcon.Name = "minIcon";
-            this.minIcon.Size = new System.Drawing.Size(32, 32);
-            this.minIcon.TabIndex = 5;
-            this.minIcon.Visible = false;
-            this.minIcon.Click += new System.EventHandler(this.minIcon_Click);
+            this.pinIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pinIcon.BackgroundImage = global::ShinyCountPlus.Properties.Resources.pin_off;
+            this.pinIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pinIcon.Location = new System.Drawing.Point(360, 8);
+            this.pinIcon.Name = "pinIcon";
+            this.pinIcon.Size = new System.Drawing.Size(32, 32);
+            this.pinIcon.TabIndex = 5;
+            this.pinIcon.Click += new System.EventHandler(this.pinIcon_Click);
             // 
             // menuIcon
             // 
@@ -558,12 +558,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(438, 648);
             this.ControlBox = false;
+            this.Controls.Add(this.sidePanel);
             this.Controls.Add(this.methodDisplayBtn);
             this.Controls.Add(this.iconColorPanel);
-            this.Controls.Add(this.sidePanel);
             this.Controls.Add(this.targetDisplayBtn);
             this.Controls.Add(this.underlinePanel);
-            this.Controls.Add(this.minIcon);
+            this.Controls.Add(this.pinIcon);
             this.Controls.Add(this.exitIcon);
             this.Controls.Add(this.titleLbl);
             this.Controls.Add(this.countLbl);
@@ -612,7 +612,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label titleLbl;
         private System.Windows.Forms.Panel exitIcon;
-        private System.Windows.Forms.Panel minIcon;
+        private System.Windows.Forms.Panel pinIcon;
         private System.Windows.Forms.Label countLbl;
         private System.Windows.Forms.Button incrementBtn;
         private System.Windows.Forms.Panel padPanel;

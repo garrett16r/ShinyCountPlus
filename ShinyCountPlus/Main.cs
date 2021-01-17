@@ -739,9 +739,17 @@ namespace ShinyCountPlus
             Application.Exit();
         }
 
-        private void minIcon_Click(object sender, EventArgs e)
+        private void pinIcon_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            if (!this.TopMost)
+            {
+                this.TopMost = true;
+                pinIcon.BackgroundImage = Resources.pin_on;
+            } else
+            {
+                this.TopMost = false;
+                pinIcon.BackgroundImage = Resources.pin_off;
+            }
         }
         #endregion
     }
