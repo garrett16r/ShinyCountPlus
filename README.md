@@ -23,10 +23,10 @@ Attempt number three at a shiny hunting counter for the Pokemon games. Better UI
 - Choose from four accent color options (more to come)
 
 ## Todo
-- Mark target as caught, view caught targets in nice grid view (maybe)
 - Dark mode
 - Custom keybinds
 - Discord Rish Presence?
+- Mark target as caught, view caught targets in nice grid view (maybe)
 
 ## Installation
 - Must be running Windows 7 or later with .NET 4.8
