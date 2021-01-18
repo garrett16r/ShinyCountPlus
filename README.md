@@ -19,7 +19,7 @@ Attempt number three at a shiny hunting counter for the Pokemon games. Better UI
 - Set custom interval for counter (great for multi-system hunting)
 - Enter custom encounter value for picking up previous hunts
 - Set window opacity (great for multitasking)
-- Pin window to foreground (great in combination with opacity option)
+- Pin window to foreground
 - Choose from four accent color options (more to come)
 
 ## Todo
