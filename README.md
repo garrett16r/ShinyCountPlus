@@ -1,4 +1,4 @@
-# ShinyCount+ v1.2.0
+# ShinyCount+ v1.2.1
 ## NOW FULLY RELEASED
 ![Banner](https://i.imgur.com/bS5V0n2.png)
 Attempt number three at a shiny hunting counter for the Pokemon games. Better UI, better optimization, better features.
@@ -19,11 +19,13 @@ Attempt number three at a shiny hunting counter for the Pokemon games. Better UI
 - Set custom interval for counter (great for multi-system hunting)
 - Enter custom encounter value for picking up previous hunts
 - Set window opacity (great for multitasking)
+- Pin window to foreground (great in combination with opacity option)
 - Choose from four accent color options (more to come)
 
 ## Todo
 - Mark target as caught, view caught targets in nice grid view (maybe)
 - Dark mode
+- Custom keybinds
 - Discord Rish Presence?
 
 ## Installation
@@ -37,3 +39,4 @@ Attempt number three at a shiny hunting counter for the Pokemon games. Better UI
 - Installation and auto updates: [squirrel.windows](https://github.com/Squirrel/Squirrel.Windows)
 - Poke Radar and chain fish odds: [Pokemon Forever](http://pokemonforever.com/pokeradar.php)
 - Dex Nav odds: [mrnbayoh's Pokemon 6th gen shiny calculator](https://mrnbayoh.github.io/pkmn6gen/shiny_calculator/)
+- Pokemon sprites: [PokemonDB Shiny Dex](https://pokemondb.net/pokedex/shiny)
