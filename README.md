@@ -1,6 +1,5 @@
 # ShinyCount+ v1.2.1
 ## NOW FULLY RELEASED
-![Banner](https://i.imgur.com/bS5V0n2.png)
 Attempt number three at a shiny hunting counter for the Pokemon games. Better UI, better optimization, better features.
 (I'm gonna admit I started this before I learned about WPF, so yes this is all in WinForms)
 
